@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main_section{
+    background-image: url('/img/asset\ 55.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 343px;
+    margin-top: 34px;
+}
+
+.main_section h3{
+    text-align: center;
+}
+
+
+/* room cards style start from here */
+.rooms{
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+}
+
+
+.rooms_card{
+    margin-top: 34px;
+    background-color: red;
+    border-radius: 9px;
+    padding: 134px;
+
+}
+.rooms_card img{
+    width: 103%;
+    text-align: center;
+}

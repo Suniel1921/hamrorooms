@@ -1,0 +1,37 @@
+const express = require ('express');
+const path = require ('path');
+const routes = require ('./routes/main')
+const hbs = require ('hbs');
+
+
+
+const PORT = process.env.PORT || 2000;
+const app  = express();
+
+//setting template engine
+app.set('view engine', 'hbs')
+
+// accessing partial folder
+hbs.registerPartials('views/partials')
+
+
+
+//middleware for accesing routes folder/path
+app.use('', routes);
+
+//Accessing public folder
+const publicPath = path.join(__dirname, ('public'));
+app.use(express.static(publicPath));
+
+
+
+
+
+
+
+
+
+
+app.listen(PORT, (req, res)=>{
+    console.log(`Server is running on port No : ${PORT}`);
+})
