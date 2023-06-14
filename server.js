@@ -1,7 +1,13 @@
 const express = require ('express');
+const dotenv = require('dotenv');
+dotenv.config();
 const path = require ('path');
 const routes = require ('./routes/main')
 const hbs = require ('hbs');
+
+
+
+
 
 
 
@@ -22,6 +28,10 @@ app.use('', routes);
 //Accessing public folder
 const publicPath = path.join(__dirname, ('public'));
 app.use(express.static(publicPath));
+
+
+
+
 
 
 

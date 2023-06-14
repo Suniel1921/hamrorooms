@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+<body>
+    <main class="register">
+
+        <form action="/register" method="post">
+        <input type="text" name="name" id="" placeholder="Enter your Name">
+        <input type="email" name="email" id="" placeholder="Enter your email">
+        <input type="password" name="password" id="" placeholder="Enter your password">
+        <input type="password" name="confPassword" id="" placeholder="Enter your repeat password">
+        <input type="number" name="phone" id="" placeholder="Enter your phone">
+        <button type="submit">Register</button>        
+       <button><a href="/login">login</a></button>
+       <div class="msg">
+         {{message}}
+       </div>
+
+
+        </form>
+
+
+    </main>
+</body>
+</html>
