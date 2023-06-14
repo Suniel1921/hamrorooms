@@ -37,6 +37,15 @@ app.use(express.static(publicPath));
 
 
 
+// rendering 404 page
+
+// app.get('*', function(req, res){
+//     res.render('404')
+//   });
+
+app.get('*',(req, res)=>{
+    res.render('404')
+})
 
 
 

@@ -28,8 +28,8 @@ routes.get('/',(req, res)=>{
     res.render('index');
 })
 
-//rendering room_owener page 
-routes.get('/room_owner',auth,(req, res)=>{
+//rendering room_owener page/dashboard
+routes.get('/room_owner',auth,async(req, res)=>{
     res.render('room_owner')
 })
 
@@ -154,20 +154,28 @@ routes.post('/roomowner',async(req, res)=>{
     try {
         const sendData = await roomOwnerData(req.body);
         await sendData.save();
-        res.send('your form is submited')
+        res.render('room_owner',{
+            message : 'Thanks for posting your room !'
+        })
         
     } catch (error) {
-        res.status(400).send(`${error}`)
+        // res.status(400).send(`${error}`)
+        res.render('room_owner',{
+            message : 'Please fill the details about your room.'
+        })
         
     }
 
 })
 
 
-
 //rendering roomslist
-routes.get('/roomslist',(req, res)=>{
-    res.render('roomslist');
+routes.get('/roomslist', async(req, res)=>{
+    const roomListData = await roomOwnerData.find({})
+    // console.log(roomListData);
+    res.render('roomslist',{
+        roomListData:roomListData,
+    });
 })
 
 

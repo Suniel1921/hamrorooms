@@ -1,24 +1,69 @@
+{{!--
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .register {
+            background-color: red;
+
+        }
+
+        .register form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 24%;
+            flex-direction: column;
+
+
+        }
+
+        form input {
+            background: transparent;
+            padding: 13px;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid gray;
+        }
+    </style>
+
+
+
     <main class="register">
 
         <form action="/register" method="post">
-        <input type="text" name="name" id="" placeholder="Enter your Name">
-        <input type="email" name="email" id="" placeholder="Enter your email">
-        <input type="password" name="password" id="" placeholder="Enter your password">
-        <input type="password" name="confPassword" id="" placeholder="Enter your repeat password">
-        <input type="number" name="phone" id="" placeholder="Enter your phone">
-        <button type="submit">Register</button>        
-       <button><a href="/login">login</a></button>
-       <div class="msg">
-         {{message}}
-       </div>
+            <p><i class="fa-regular fa-user"></i> <input type="text" name="name" id="" placeholder="Enter your Name">
+            </p>
+            <p><i class="fa-regular fa-envelope"></i> <input type="email" name="email" id=""
+                    placeholder="Enter your email"> </p>
+
+
+            <input type="password" name="password" id="" placeholder="Enter your password">
+            <input type="password" name="confPassword" id="" placeholder="Enter your repeat password">
+            <input type="number" name="phone" id="" placeholder="Enter your phone">
+            <button type="submit">Register</button>
+            <button><a href="/login">login</a></button>
+            <div class="msg">
+                {{message}}
+            </div>
 
 
         </form>
@@ -26,4 +71,214 @@
 
     </main>
 </body>
+
+</html>
+
+
+--}}
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Slide Navbar</title>
+    <link rel="stylesheet" type="text/css" href="slide navbar style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+
+
+
+    <style>
+        :root {
+            --primary_dark_red_color: #E9386D;
+            --primary_dark_green_color: #00BF8D;
+            --primary_heading_color: #2E3D62;
+            --primary_dark_paragrah_color: #677788;
+            --primary_btn_text_color: #F1634C;
+            --primary_btnText_color: #7360f2;
+        }
+
+
+        .bodychild {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Jost', sans-serif;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+        }
+
+        .main {
+            width: 448px;
+            height: 701px;
+            background: red;
+            overflow: hidden;
+            background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+            border-radius: 10px;
+            box-shadow: 5px 20px 50px #000;
+        }
+
+        #chk {
+            display: none;
+        }
+
+        .signup {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        label {
+            color: #fff;
+            font-size: 2.3em;
+            justify-content: center;
+            display: flex;
+            margin: 60px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+        }
+
+        input {
+            width: 65%;
+            height: 45px;
+            background: #e0dede;
+            justify-content: center;
+            display: flex;
+            margin: 20px auto;
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 65%;
+            height: 45px;
+            margin: 10px auto;
+            justify-content: center;
+            display: block;
+            color: #fff;
+            background-color: #35bb98;
+
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 20px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            transition: .2s ease-in;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: var(--primary_dark_green_color)
+        }
+
+        .login {
+            height: 460px;
+            background: #eee;
+            border-radius: 60% / 10%;
+            transform: translateY(-180px);
+            transition: .8s ease-in-out;
+        }
+
+        .login label {
+            color: #573b8a;
+            transform: scale(.6);
+        }
+
+        #chk:checked~.login {
+            transform: translateY(-500px);
+        }
+
+        #chk:checked~.login label {
+            transform: scale(1);
+        }
+
+        #chk:checked~.signup label {
+            transform: scale(.6);
+        }
+
+        .msg {
+            text-align: center;
+            margin-top: 34px;
+            font-size: 21px;
+            color: #F1634C;
+        }
+
+        .logins {
+            text-align: center;
+            margin-top: 34px;
+            font-size: 18px;
+            color: #00BF8D;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logins a {
+            color: white
+        }
+    </style>
+
+
+    {{>navbar}}
+
+
+
+    <div class="bodychild">
+
+
+
+
+        <div class="main">
+            <input type="checkbox" id="chk" aria-hidden="true">
+
+            <div class="signup">
+                <form action="/register" method="post">
+                    <label for="chk" aria-hidden="true">Register</label>
+                    <input type="text" name="name" placeholder="User name" required="">
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="password" name="password" placeholder="Password" required="">
+                    <input type="password" name="confPassword" placeholder="confPassword" required="">
+                    <input type="number" name="phone" id="" placeholder="Phone No.">
+                    <button type="submit">Register</button>
+
+                    <p class="logins">Already Have an Account<a href="/login">Login Here</a></p>
+                    <div class="msg">
+                        {{message}}
+                    </div>
+
+
+                </form>
+            </div>
+
+
+
+            {{!-- <div class="login">
+                <form>
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="password" name="pswd" placeholder="Password" required="">
+                    <button>Login</button>
+                </form>
+            </div> --}}
+        </div>
+    </div>
+
+
+
+
+</body>
+
 </html>

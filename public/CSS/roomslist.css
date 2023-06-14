@@ -1,38 +1,58 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.main_section{
-    background-image: url('/img/asset\ 55.png');
-    background-size: cover;
+
+/* body part is temprory */
+
+body {
+    background-image: url('../img/secondbg.jpeg');
     background-repeat: no-repeat;
-    height: 343px;
-    margin-top: 34px;
+    background-size: cover;
+    object-fit: contain;
+    height: 100vh;
 }
 
-.main_section h3{
-    text-align: center;
+.room_list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
 }
 
+.rooms {
+    background-color: red;
+    width: 390px;
+    height: 490px;
+    border-radius: 9px;
 
-/* room cards style start from here */
-.rooms{
+}
+
+.rooms img {
+    height: 260px;
+    width: 390px;
+    border-radius: 9px;
+
+}
+
+.roomdetails{
     display: flex;
     justify-content: space-around;
-    gap: 3rem;
+    color: white;
 }
 
-
-.rooms_card{
-    margin-top: 34px;
-    background-color: red;
-    border-radius: 9px;
-    padding: 134px;
-
-}
-.rooms_card img{
-    width: 103%;
+.topbanner {
+    position: relative;
+    bottom: 250px;
+    left: 0px;
+    background: blue;
+    width: 119px;
     text-align: center;
+    color: white;
+
 }
