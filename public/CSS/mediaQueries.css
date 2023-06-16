@@ -1,4 +1,4 @@
-@media screen and (max-width : 1400px){
+/* @media screen and (max-width : 1400px){
     .circleimg img{
         width: 21%;
         margin-top: 1px;
@@ -44,11 +44,11 @@
         position: relative;
        top: -150px;
         left: 134px;
-    }
+    } */
 
     /* our services section */
 
-    .services_section{
+    /* .services_section{
         margin-top: 55px;
     }
 
@@ -59,11 +59,12 @@
     margin-left: -150px;
      }
 
-    }
+    } */
 
+    
 /* media queries for 950px */
 
-@media screen and (max-width: 950px){
+/* @media screen and (max-width: 950px){
 
     .left_header {
         margin-top: -26px;
@@ -91,32 +92,86 @@
         font-size: 16px;
         margin-left: -41px;
         margin-bottom: 42px;
-    }
+    } */
 
     /* services section for 950px */
 
-    .services_section {
+    /* .services_section {
         margin-top: 174px;
     }
     .content h4{
         font-size: 30px;
         margin-top: 34px;
     }
-/* 
-    .cards {
-        /* display: grid;
-        grid-template-columns: repeat(3,1fr); */
 
-        /* display: flex;
+
+
+
+} */
+
+
+
+
+
+
+
+
+
+
+/* -------------------------media queries for mobile device 412px------------------------- */
+
+@media screen and (max-width: 412px){
+    .header_and_nav{
+        background-image: url('../img/mainbg.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;       
+        height: 300vh;
+        background-position: center center;
+        width: 375%;
+      
+    }
+    .navlinks{
+        display: none;
+    }
+
+    .main_header{
+        display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
-        gap: 3rem;
-        height: 466px;
-        margin-top: 49px;
-    } */ */
+    }
 
+    .main_header .left_header h1 {
+        font-size: 75px;
+        width: 726px;
+    }
+    .circleimg .head_Para {
+        margin-left: -201px;
+        font-size: 3rem;
+    }
+    .heading{
+        color: var(--primary_heading_color);
+        font-size: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 5rem;
+    }
 
-
+    .services_paragraph .heading {
+        margin-top: 557px;
+    }
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin-top: 34px;  
+        gap: 3rem; 
+        height: 450px;
+        margin-top: 44px;
+    }
+    
 }
+
+
 
 
 
