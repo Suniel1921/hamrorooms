@@ -8,7 +8,7 @@
 /* body part is temprory */
 
 body {
-    background-image: url('../img/secondbg.jpeg');
+    /* background-image: url('../img/secondbg.jpeg'); */
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: contain;
@@ -26,11 +26,15 @@ body {
 }
 
 .rooms {
-    background-color: red;
+    border: 1px solid black;
+    background-color: white;
     width: 390px;
     height: 490px;
     border-radius: 9px;
+}
 
+.rooms h4{
+    color : #00BF8D;
 }
 
 .rooms img {

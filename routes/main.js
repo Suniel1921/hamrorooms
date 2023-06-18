@@ -179,6 +179,69 @@ routes.get('/roomslist', async(req, res)=>{
 })
 
 
+// admin dashboard rendering
+
+routes.get('/admin', async(req ,res)=>{
+    const adminData = await roomOwnerData.find({});
+    // console.log(adminData);
+    res.render('admin',{
+        adminData : adminData
+    });
+})
+
+// rendering edit page
+
+routes.get('/edit/:id',async(req ,res)=>{
+    const {id} = req.params;
+    const editData = await roomOwnerData.findById({_id:id});
+    // console.log(editData)
+    if(editData == null){
+        res.redirect('/');
+    }
+    else{
+        res.render('edit',{
+            editData : editData,
+        })
+    }
+})
+
+//updating data 
+
+routes.post('/update/:id',async(req ,res)=>{
+    const {id} = req.params;
+    const {address, city, rent, phone, roomImage} = req.body;
+    const updateData = await roomOwnerData.findByIdAndUpdate({_id: id}, {address, city, rent, phone, roomImage}, {new:true});
+    res.redirect('/admin');
+})
+
+// deleting data 
+
+routes.get('/delete/:id',async(req, res)=>{
+    const {id} = req.params;
+    const deleteData = await roomOwnerData.findByIdAndDelete({_id:id});
+    res.redirect('/admin');
+
+})
+
+// creating post using amdin panel
+
+// rendering cratepost
+routes.get('/createpost',(req, res)=>{
+    res.render('createpost')
+})
+
+routes.post('/createPost',async(req, res)=>{
+    const createPost = await roomOwnerData(req.body);
+    await createPost.save();
+    res.render('createPost',{
+        message : 'your post are created !'
+    })
+})
+
+
+
+
+
 
 
 

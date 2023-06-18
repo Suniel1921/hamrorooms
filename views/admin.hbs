@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+</head>
+<body>
+    <h3>welcome to the sarathi admin page</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <td>S.No</td>
+                <td>Address</td>
+                <td>city</td>
+                <td>reee</td>
+                <td>phone</td>
+                <td>image url</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each adminData}}
+            <tr>
+                <td>1</td>
+                <td>{{this.address}}</td>
+                <td>{{this.city}}</td>
+                <td>{{this.rent}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.roomImage}}</td>
+
+                <td><a href="/edit/{{this._id}}">Edit</a></td>
+                <td><a href="/delete/{{this._id}}">Delete</a></td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+
+
+    </table>
+
+    <a href="/createpost">createpost</a>
+
+
+
+</body>
+</html>

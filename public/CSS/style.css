@@ -17,9 +17,10 @@
 }
 
 .container{
-    max-width: 1250px;
+    max-width: 1450px;
     padding-inline: 20px;
     margin-inline: auto;
+    overflow: hidden;
 }
 
 
@@ -165,11 +166,15 @@
 }
 
 
-.right_header img{
+/* .right_header img{
     position: relative;
     top: 125px;
 
-}
+} */
+/* .right_header img{
+    margin-top: 124px;
+
+} */
 
 /* our services section style start from here */
 
