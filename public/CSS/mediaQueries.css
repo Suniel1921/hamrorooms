@@ -96,6 +96,28 @@
 /* if 898 not work use 814px */
 
 @media screen and (max-width: 898px) {
+
+    #menubar{
+        display: block;
+    }
+
+    .navlinks{
+        display: none;
+        position: relative;
+        flex-direction: column;
+        top: 134px;
+        background-color: red;
+        width: 100%;
+        padding: 34px;
+    }
+
+    .navlinks.active{
+        display: block;
+    }
+
+
+
+
     .main_header{
         flex-wrap: wrap;
     }
@@ -156,9 +178,7 @@
         margin-top: -112px;
     }
 
-    .navlinks{
-        display: none;
-    }
+   
     .btn_section {
         flex-wrap: wrap;
     }

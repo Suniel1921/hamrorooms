@@ -25,6 +25,9 @@
 
 }
 
+#menubar{
+    display: none;
+}
 
 
 /* main background for nav and haeder */
