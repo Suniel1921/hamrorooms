@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.heading {
+    margin-top: 74px;
+}
+
+.main_child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12rem;
+}
+
+.right_main .svgimg {
+    width: 98%;
+}
+
+.form input {
+    width: 386px;
+    height: 49px;
+    padding: 12px;
+    margin: 10px;
+    outline: none;
+    border: 1px solid #00BF8D;
+    border-radius: 5px;
+    color: #00BF8D;
+}
+
+.form input::placeholder {
+    color: #00BF8D;
+}
+
+.form input:focus {
+    color: #00BF8D;
+}
+
+.form p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #00BF8D;
+    ;
+}
+
+.btn {
+    padding: 18px 61px;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 18px;
+    border: none;
+    background-color: #00BF8D;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    transition: 1s;
+    background-color: #09daa3db;
+    cursor: pointer;
+
+}
+
+.girlcircle {
+    animation: cityGirl 3s alternate infinite;
+}
+
+@keyframes cityGirl {
+    from {
+        transform: translateY(14px);
+    }
+
+    to {
+        transform: translateY(94px);
+    }
+
+}
+
+.rect {
+    animation: rectanimation 3s alternate infinite;
+}
+
+@keyframes rectanimation {
+    from {
+        transform: translateY(14px);
+    }
+
+    to {
+        transform: translateY(94px);
+    }
+
+}
+
+.msg {
+    text-align: center;
+    margin-top: 34px;
+    font-size: 21px;
+    color: #F1634C;
+}
+
+
+
+
+/* media queries */
+
+
+
+@media screen and (max-width: 1145px) {
+
+    .main_child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12rem;
+        flex-wrap: wrap;
+    }
+
+
+    .right_main .svgimg {
+        width: 72%;
+        margin-top: -266px;
+
+    }
+
+
+
+}
+
+@media screen and (max-width: 980px) {
+    .navlinks{
+        display: none;
+    }
+
+    .heading {
+        margin-top: 9px;
+    }
+    
+}
+
+
+
+/* media queris for mobile device */
+
+@media screen and (max-width: 430px) {
+    .heading {
+        font-size: 23px;
+        margin-top: 9px;
+    }
+    
+    .form input {
+        width: 273px;
+        height: 49px;
+        padding: 12px;
+        outline: none;
+        border: 1px solid #00BF8D;
+        border-radius: 5px;
+        color: #00BF8D;
+        margin-top: 14px;
+    }
+
+    .right_main .svgimg {
+        width: 98%;
+        margin-top: -349px;
+    }
+}

@@ -1,0 +1,323 @@
+@media screen and (max-width: 1270px){
+    .halfcirlcle {
+       display: none;
+    }
+
+    .dotdotimg {
+        /* margin-left: 162px;
+        margin-top: 34px; */
+        display: none;
+    }
+
+
+    .main_header .left_header h1 {
+        font-size: 35px;
+    }
+
+    .right_header img{
+        width: 75%;
+    }
+
+    .left_header{
+        margin-top: -81px;
+    }
+
+    .services_section{
+        margin-top: 90px;
+        height: 900px;
+    }
+
+    .cards {
+        gap: 17px;
+    }
+
+    .card2 {
+        top: -40px;        
+    }
+
+    
+    
+}
+
+
+
+
+@media screen and (max-width: 1023px) {
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .services_section{
+        margin-top: 90px;
+        height: 1300px;
+    }
+    .why_choose_sectoin{
+        flex-wrap: wrap-reverse;
+    }
+
+    .curve_arrow {
+        animation: curveAnimation 2s alternate infinite;
+        display: none;
+    }
+    .growcardflex{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .card1 {
+        position: relative;
+        top: -84px;
+        left: 0px;
+    }
+    .card2 {
+        top: -79px;
+    }
+    .card3 {
+        position: relative;
+        top: -179px;
+        left: 1px;
+    }
+
+    .mainfooter {
+        margin-top: 279px;
+    }
+
+   
+    
+}
+
+
+
+/* media queries for 823px */
+
+
+/* if 898 not work use 814px */
+
+@media screen and (max-width: 898px) {
+    .main_header{
+        flex-wrap: wrap;
+    }
+
+    .vdoicon{
+        width: 214px;
+        display: flex;
+    }
+   
+    .vdoicon .para{
+        font-weight: 800;
+        color: black;
+    }
+
+    .middele_header img {
+        position: relative;
+        top: 320px;
+        left: -486px;
+        animation: arrowAnimation 4s alternate infinite;
+    }
+
+    .main_header .left_header p {
+        margin-top: 25px;
+    }
+
+
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .services_section{
+        margin-top: 528px;
+    }
+    
+    .services_section {
+        margin-top: 506px;
+        height: 1600px;
+    }
+
+    .card1 {
+        position: relative;
+        top: -127px;
+        left: 0px;
+    }
+
+    .card2 {
+        top: -157px;
+    }
+    .card3 {
+        position: relative;
+        top: -211px;
+        left: 1px;
+    }
+
+    .why_choose_left img {
+        width: 83%;
+        margin-top: -112px;
+    }
+
+    .navlinks{
+        display: none;
+    }
+    .btn_section {
+        flex-wrap: wrap;
+    }
+
+
+
+}
+
+/* media queries for 400px */
+
+@media screen and (max-width: 400px) {
+
+    .header_and_nav{
+        background-image: url('../img/mainbg.jpeg');
+        background-repeat: no-repeat;
+        /* object-fit: contain; */
+        background-size: cover;
+       height: 1045px;
+        background-position: top center;
+      
+    }
+
+
+
+    .middele_header img {
+        position: relative;
+        top: 98px;
+        left: -115px;
+        animation: arrowAnimation 4s alternate infinite;
+    }
+
+    .btn_section {
+        flex-wrap: wrap;
+    }
+
+    .vdoicon {
+        display: flex;
+        width: 249px;
+        margin-top: -50px;
+        gap: 12px;
+    }
+
+    .content h4{
+        font-size: 27px;
+        margin-top: 25px;
+    }
+    .heading p {
+        font-size: 16px;
+        margin-top: 34px;
+    }
+    .main_header .left_header p {
+        margin-top: 25px;
+    }
+
+    .circleimg img {
+        animation: cirlcleAnimation 7s alternate infinite;
+        width: 66px;
+        margin-top: 83px;
+    }
+
+    .circleimg .head_Para {
+        margin-left: -70px;
+    }
+    /* .child1, .child2, .child3 {
+        width: 314px;
+    } */
+    .child1, .child2, .child3 {
+        width: 324px;
+        height: 459px;
+    }
+
+
+
+    .left_small_card1, .left_small_card2, .left_small_card3{
+        margin-left: 258px;
+    }    
+
+    .why_choose_sectoin {
+        flex-wrap: wrap-reverse;
+        margin-top: -9px;
+    }
+    
+    
+
+    .why_choose_right .heading {
+        margin-left: -34px;
+    }
+    .why_choose_left img {
+        width: 83%;
+        margin-top: -112px;
+    }
+
+    .services_section {
+        margin-top: 61px;
+        height: 1800px;
+    }
+    .growHeading h4{
+        font-size: 34px;
+    }
+
+    .growthImgparents{
+        background-image: none;
+    }
+
+    .growcardflex {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .card1 {
+        position: relative;
+        top: -127px;
+        left: -29px;
+    }
+    .card2 {
+        top: -211px;
+        left: -29px;
+    }
+    .card3 {
+        position: relative;
+        top: -322px;
+        left: -29px;
+    }
+    .mainfooter {
+        margin-top: 671px;
+    }
+
+
+    .footerbg{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .right_footer {
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 53px;
+    }
+
+    .mainfooter {
+        margin-top: 671px;
+        padding: 34px;
+    }
+
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

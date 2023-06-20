@@ -5,15 +5,24 @@
 }
 
 
-/* body part is temprory */
+/* this body part is temprory */
 
-body {
-    /* background-image: url('../img/secondbg.jpeg'); */
+/* body {
+    background-image: url('../img/secondbg.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: contain;
     height: 100vh;
+} */
+
+.roomContainer{
+    max-width: 1400px; 
+    padding-inline: 20px;
+    margin-inline: auto;
+    overflow: hidden;
+
 }
+
 
 .room_list{
     display: grid;
@@ -21,16 +30,32 @@ body {
     gap: 4rem;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
+    overflow: hidden;
+    margin-top: 134px;
 
 }
 
 .rooms {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     background-color: white;
     width: 390px;
     height: 490px;
     border-radius: 9px;
+    overflow: hidden;
+    transition: 0.5s;
+    box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.13);    
+    margin-bottom: 37px;
+
+}
+
+.rooms:hover{
+    box-shadow: 0px 0px 6px 4px rgba(150, 94, 22, 0.24);
+}
+
+.rooms:hover img{
+    scale: 110%;
+
 }
 
 .rooms h4{
@@ -41,7 +66,11 @@ body {
     height: 260px;
     width: 390px;
     border-radius: 9px;
-
+    transition: scale 500ms;
+}
+.rooms img:hover{
+    scale: 110%;
+  
 }
 
 .roomdetails{
@@ -61,3 +90,61 @@ body {
 
 }
 
+.rent{
+    margin-left: 44px;
+}
+
+
+
+.testing{
+    height: 343px;
+}
+
+
+
+
+/* media queries for laptop devices */
+
+@media screen and (max-width: 1362px) {
+    .room_list{
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+
+    
+}
+
+@media screen and (max-width: 980px) {
+    .navlinks{
+        display: none;
+    }
+    
+}
+
+
+@media screen and (max-width: 470px) {
+   
+    .rooms img {
+        height: 260px;
+        width: 315px;
+        border-radius: 9px;
+        text-align: center;
+    }
+
+    /* .room_list{
+        width: 380px;
+    } */
+
+    .rooms {
+        border: 1px solid black;
+        background-color: white;
+        width: 317px;
+        height: 490px;
+        border-radius: 9px;
+    }
+
+    
+    
+    
+}
