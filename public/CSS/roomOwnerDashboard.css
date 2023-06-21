@@ -149,6 +149,9 @@
         font-size: 23px;
         margin-top: 9px;
     }
+    .btn{
+        margin-top: 56px;
+    }
     
     .form input {
         width: 273px;
