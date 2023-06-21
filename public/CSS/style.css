@@ -17,8 +17,8 @@
 }
 
 .container{
-    /* max-width: 1400px; */
-    max-width: 1270px;
+    max-width: 1400px;
+    /* max-width: 1270px; */
     padding-inline: 20px;
     margin-inline: auto;
     overflow: hidden;
@@ -198,6 +198,13 @@
 
 } */
 
+.righ_header img{
+    width: 69%;
+}
+
+
+
+
 /* our services section style start from here */
 
 .services_paragraph{
@@ -260,7 +267,7 @@
     background-color:  #35e1b36f;
     padding: 33px;
     width: 34px;
-    margin-left: 314px;
+    margin-left: 355px;
     border-bottom-left-radius: 100%;
     /* border-top-right-radius:95px; */
     border-top-right-radius:9px;
@@ -278,7 +285,7 @@
     background-color:  #7460f291;
     padding: 33px;
     width: 34px;
-    margin-left: 314px;
+    margin-left: 355px;
     border-bottom-left-radius: 100%;
     /* border-top-right-radius:95px; */
     border-top-right-radius:9px;
@@ -347,7 +354,7 @@
     background-color:  #f1624c71;
     padding: 33px;
     width: 34px;
-    margin-left: 314px;
+    margin-left: 355px;
     border-bottom-left-radius: 100%;
     /* border-top-right-radius:95px; */
     border-top-right-radius:9px;
@@ -366,10 +373,18 @@
 
 
 
-.cards_child img{
+/* .cards_child img{
     width: 50px;
     margin-top: 34px;
     margin-left: 34px;
+} */
+
+
+.cards_child img {
+    width: 32%;
+    margin-top: -27px;
+    margin-left: 34px;
+    height: 98px;
 }
 
 

@@ -232,6 +232,9 @@
     .main_header .left_header p {
         margin-top: 25px;
     }
+    .main_header .left_header h1 {
+        font-size: 31px;
+    }
 
     .circleimg img {
         animation: cirlcleAnimation 7s alternate infinite;
