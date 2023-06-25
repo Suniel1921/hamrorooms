@@ -16,6 +16,9 @@
     --primary_btnText_color:  #7360f2;
 }
 
+
+
+
 .container{
     max-width: 1400px;
     /* max-width: 1270px; */
@@ -49,6 +52,7 @@
     padding: 24px;
 }
 .navlinks{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
