@@ -698,7 +698,6 @@
     list-style: none;
     display: flex;
     flex-direction:column;
-    gap: 34px;
 }
 .right_footer a:hover{
     color: var(--primary_btn_text_color);
