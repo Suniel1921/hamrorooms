@@ -11,6 +11,10 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        {{!-- animation link --}}
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
         {{!-- media queries --}}
         <link rel="stylesheet" href="/CSS/mediaQueries.css">
 </head>
@@ -27,12 +31,13 @@
 
                 <div class="circleimg">
                     <img src="/img/circle.png" alt="">
-                    <span class="head_Para">HAMRO ROOMS - BOUND BY LOVE ADN TRUST.</span>
+                    <span class="head_Para" data-aos="fade-right">HAMRO ROOMS - BOUND BY LOVE ADN TRUST.</span>
 
                 </div>
 
-                <h1>We Help You To Find <br> Your Dream <span class="changeColorspan">Rooms.</span> </h1>
-                <p>Unlock the door to a world of comfort and convenience with Hamro Rooms, the ultimate online destination for effortlessly finding your perfect room.</p>
+
+                <h1>We Help You To Find <br> Your Dream <span class="changeColorspan" id="spin">Rooms.</span> </h1>
+                <p>Unlock the door to a world of comfort and convenience with Hamro Rooms, the ultimate <br> online destination for effortlessly finding your perfect room.</p>
 
                 <div class="btn_section">
 
@@ -57,8 +62,9 @@
 
             <div class="right_header">
                 {{!-- <img src="/img/right_img.png" alt="images"> --}}
-                <img src="/img/rooms.svg" alt="">          
-       
+                <img class="anil" src="/img/3dimg1.png" alt="">
+               
+
 
 
             </div>
@@ -87,7 +93,7 @@
             </div>
 
             <div class="content">
-                <h4>We Promise Providing <span class="services_Span">Best Services</span></h4>
+                <h4 data-aos="fade-right">We Promise Providing <span class="services_Span">Best Services</span></h4>
 
                 <p>Harmo Rooms offers a seamless experience, bridging the gap between <br> room finding, hostels finding, and hotels finding, ensuring a hassle-free journey to <br> your ideal accommodation.</p>
             </div>
@@ -96,13 +102,11 @@
 
 
         </div>
-        {{!-- our services card section --}}
-
-       
+        {{!-- our services card section --}}       
 
         <div class="cards">
 
-            <div class="cards_child child1">
+            <div class="cards_child child1" data-aos="zoom-in">
 
                 {{!-- small card half cirlcle 3 --}}
                 <div class="left_small_card1">
@@ -125,7 +129,7 @@
 
             </div>
 
-            <div class="cards_child child2">
+            <div class="cards_child child2" data-aos="zoom-out"> 
 
                 {{!-- small card half cirlcle 2 --}}
                 <div class="left_small_card2">
@@ -147,7 +151,7 @@
 
             </div>
 
-            <div class="cards_child child3">
+            <div class="cards_child child3" data-aos="zoom-out-down">
 
                 {{!-- small card half cirlcle 3 --}}
                 <div class="left_small_card3">
@@ -198,7 +202,7 @@
             <div class="services_paragraph">
                 <h2 class="heading">Why Choose Us</h2>
             </div>
-            <h3>We Strongly Believe <br> Customers are the Key</h3>
+            <h3 data-aos="fade-right">We Strongly Believe <br> Customers are the Key</h3>
             <p>From the moment customers access our website, we strive to provide them with a seamless and user-friendly experience. We understand that searching for the perfect room can be a significant decision, and we aim to make the process as smooth as possible. Our website is designed with their convenience in mind, featuring intuitive navigation, robust and comprehensive room listings to cater to their diverse preferences.</p>
         </div>
 
@@ -236,7 +240,7 @@
                 </div>
 
                 <div class="content growHeading">
-                    <h4>We Priorities every <span class="services_Span">Work Steps</span> Equally </h4>
+                    <h4 data-aos="fade-right">We Priorities every <span class="services_Span">Work Steps</span> Equally </h4>
 
                     <p>Hamro Rooms website is a comprehensive platform dedicated to simplifying the process of finding <br> the perfect room for individuals With a user-friendly interface. </p>
                 </div>
@@ -384,6 +388,11 @@
 
 
     <script src="/javascript/index.js"></script>
+
+
+ <script>
+  AOS.init();
+</script>
 
 
 

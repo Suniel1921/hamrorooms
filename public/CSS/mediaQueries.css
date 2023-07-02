@@ -1,4 +1,4 @@
-@media screen and (max-width: 1270px){
+@media screen and (max-width: 1274px){
     .halfcirlcle {
        display: none;
     }
@@ -11,8 +11,11 @@
 
 
     .main_header .left_header h1 {
-        font-size: 35px;
+        font-size: 45px;
     }
+
+
+  
 
     .right_header img{
         width: 75%;
@@ -217,14 +220,17 @@
         font-size: 24px;
     }
 
+    .right_header img {
+        width: 105%;
+    }
 
-   
+     
 
 
     .middele_header img {
         position: relative;
-        top: 98px;
-        left: -115px;
+        top: 279px;
+        left: 0px;
         animation: arrowAnimation 4s alternate infinite;
     }
 
@@ -232,11 +238,18 @@
         flex-wrap: wrap;
     }
 
+
+    .btn button {
+        width: 239px;
+        height: 65px;    
+    }
+
     .vdoicon {
         display: flex;
         width: 331px;
-        margin-top: -50px;
+        margin-top: -110px;
     }
+    
 
     .content h4{
         font-size: 27px;
@@ -246,11 +259,15 @@
         font-size: 16px;
         margin-top: 34px;
     }
+    
     .main_header .left_header p {
-        margin-top: 55px;
+        margin-top: 46px;
+        width: 297px;
+        font-size: 20px;
     }
     .main_header .left_header h1 {
-        font-size: 31px;
+        font-size: 30px;
+        width: 333px;
     }
 
     .circleimg img {
@@ -344,7 +361,7 @@
     }
 
     .mainfooter {
-        margin-top: 671px;
+        margin-top: 810px;
         padding: 34px;
     }
 

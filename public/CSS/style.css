@@ -32,6 +32,10 @@
     display: none;
 }
 
+.logoimg{
+    width: 30%;
+}
+
 
 /* main background for nav and haeder */
 
@@ -130,6 +134,11 @@
 
 }
 
+.left_header{
+    max-width: 70%;
+
+}
+
 .btn_section{
     margin-top: 33px;
     display: flex;    
@@ -155,10 +164,7 @@
         width: 214px;
         display: flex;
     }
-    .vdoicon img{
-        width: 79px;
-      
-    }
+    
 
     .btn_section .vdoicon .para{
         font-weight: 600;
@@ -202,9 +208,9 @@
 
 } */
 
-.righ_header img{
-    width: 69%;
-}
+/* .righ_header img{
+    width: 100%;
+} */
 
 
 
@@ -297,8 +303,8 @@
 }
 
 .btm1{
-    width: 155px;
-    height: 42px;
+    width: 186px;
+    height: 56px;
     margin-left: 34px;
     margin-top: 24px;
     border: none;
@@ -308,8 +314,8 @@
     font-weight: 500;
 }
 .btm2{
-    width: 155px;
-    height: 42px;
+    width: 186px;
+    height: 56px;
     margin-left: 34px;
     margin-top: 24px;
     border: none;
@@ -319,8 +325,8 @@
     font-weight: 500;
 }
 .btm3{
-    width: 155px;
-    height: 42px;
+    width: 186px;
+    height: 56px;
     margin-left: 34px;
     margin-top: 24px;
     border: none;
@@ -396,8 +402,7 @@
     background-color: white;
     box-shadow: 0 10px 60px rgba(73,88,124,.1);
     /* padding: 140px 34px; */
-    border-radius: 19px;   
-    
+    border-radius: 19px;
 }
 .child1:hover{
     background-color: var(--primary_dark_green_color);
@@ -514,9 +519,9 @@
 
 
 
-.halfcirlcle{
-    margin-left: 1210px;
-    margin-top: -129px;
+.halfcirlcle {
+    margin-left: 1154px;
+    margin-top: -73px;
     animation: halfcurveAnimation 2s alternate infinite;
 }
 
@@ -617,21 +622,23 @@
     margin-left: 60px;
 }
 
-.card1 {
+.card1 {    
     position: relative;
-    top: -50px;
-    left: -46px;
+    top: -19px;
+    left: 38px;
+
 }
 .card2 {
     position: relative;
     top: 94px;
-    left: 3px;
+    left: 110px;
 }
 .card3 {
     position: relative;
     top: -66px;
     left: 53px;
 }
+
 
 .card_content{
    margin-left: 34px;
@@ -747,8 +754,6 @@
 /* .testing{
     height: 343px;
 } */
-
-
 
 
 

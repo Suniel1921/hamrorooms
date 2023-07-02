@@ -1,4 +1,4 @@
-{{!--
+{{!-- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,12 +6,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/register.css">
 </head>
 
 <body>
+
+    <style>
+        .login{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            padding: 34px;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            width: 343px;
+            text-align: center;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+
+    </style>
+
+
+
+{{>navbar}}
     <main class="login">
 
-        <form action="/login" method="post">
+        <form class="form" action="/login" method="post">
             <input type="email" name="email" id="" placeholder="Enter your email">
             <input type="password" name="password" id="" placeholder="Enter your password">
 
@@ -32,14 +57,84 @@
 
 </html>
 
---}}
+
+
+ --}}
 
 
 
 
 
 
-<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/CSS/register.css" />
+    <link rel="stylesheet" href="/CSS/style.css">
+  </head>
+  <body>
+
+    {{>navbar}}
+
+    <form action="/login" method="post" class="signup">
+      <h3 class="heading">Login</h3>
+      <p class="msg">{{message}}</p>
+      <input type="email" name="email" id="" placeholder="Enter your Email"/>
+      <input type="password" name="password" id="" placeholder="Enter your Password"/> 
+      <button class="btn_signup">Login</button>
+       <h4 class="alreadyAccount">Need an Account ? <a href="/register">Sign Up</a></h4>
+
+    </form>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+{{!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -208,19 +303,24 @@
                 </form>
             </div>
 
-            {{!-- <div class="login">
+            <div class="login">
                 <form>
                     <label for="chk" aria-hidden="true">Register</label>
                     <input type="email" name="email" placeholder="Email" required="">
                     <input type="password" name="pswd" placeholder="Password" required="">
                     <button>Login</button>
                 </form>
-            </div> --}}
+            </div>
         </div>
+
+
+
+
+
 </body>
 
 
 
 </div>
 
-</html>
+</html> --}}

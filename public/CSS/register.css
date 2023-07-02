@@ -1,0 +1,125 @@
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Roboto', sans-serif;
+font-weight: 600;
+}
+
+.heading{
+color: #34BA82;
+font-size: 44px;
+margin-top: 34px;
+}
+.signup{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: auto;
+padding: 20px 0;
+gap: 2rem;
+text-align: center;
+padding: 34px;
+
+}
+
+.alreadyAccount a{
+    color: red;
+    font-style: 34px;    
+}
+.alreadyAccount{
+    display: flex;
+    gap: 7px;
+}
+
+
+
+
+.signup input{
+padding: 16px 86px;
+border: 1px solid #34BA82;
+outline: none;
+color: #34BA82;
+}
+.signup input::placeholder{
+color: var(#011A41);
+
+}
+::placeholder{
+color: #34BA82;
+}
+
+.signup input:focus{
+color: #34BA82;
+}
+
+.btn_signup{
+padding: 23px 85px;
+border-radius: 5px;
+outline: none;
+border: none;
+background: #34BA82;
+color: white;
+}
+
+.msg{
+color: red;
+font-size: 19px;
+font-family: 'Roboto', sans-serif;
+
+}
+
+/* this is for error disply show */
+.emailMsg{
+color: red;
+font-size: 19px;
+}
+
+
+
+
+
+/* media queries for mobile devices */
+
+@media screen and (max-width: 356px) {
+    .signup {
+        margin-left: 54px;
+    }
+    .heading{
+        font-size: 3rem;
+        width: 343px;
+        }
+    
+}
+@media screen and (max-width: 292px) {
+    .signup {
+        margin-left: 90px;
+    }
+    
+}
+
+
+
+
+/* FOR TEXT ANIMATION  */
+
+.tracking-in-expand {
+	animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+ @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+
