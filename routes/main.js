@@ -35,11 +35,25 @@ routes.get('/room_owner',auth,async(req, res)=>{
     res.render('room_owner')
 })
 
+
+
+
+
+
+
 //rendering register form
 routes.get('/register',(req, res)=>{
     res.render('register');
    
 })
+
+
+
+
+
+
+
+
 
 routes.post('/register',async(req, res)=>{
    try {
@@ -236,7 +250,6 @@ routes.get('/roomslist', async(req, res)=>{
     });
 })
 
-
 // admin dashboard rendering
 
 routes.get('/admin', async(req ,res)=>{
@@ -295,6 +308,11 @@ routes.post('/createPost',async(req, res)=>{
         message : 'your post are created !'
     })
 })
+
+
+
+
+
 
 
 

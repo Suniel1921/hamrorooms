@@ -11,9 +11,26 @@
 
 <body>
 
+    <style>
+        .showroombtn {
+            position: relative;
+            top: -113px;
+            left: 174px;
+        }
+
+        @media screen and (max-width: 1150px) {
+            .showroombtn {
+                position: relative;
+                top: -28px;
+                left: -24px;
+            }
+
+        }
+    </style>
 
 
-  
+
+
 
     <section class="main_section container">
         {{>navbar}}
@@ -29,14 +46,13 @@
                     <p>City</p>
                     <input type="text" name="city" id="" placeholder="Kirtipur" required autocomplete="off">
                     <p>Rent</p>
-                    <input type="number" name="rent" id="" placeholder="5000" required autocomplete="off">                   
+                    <input type="number" name="rent" id="" placeholder="5000" required autocomplete="off">
                     <p>Phone No.</p>
                     <input type="number" name="phone" id="" placeholder="9807865665" required autocomplete="off">
-                      <p>Uplaod Room Image</p>
-                    {{!-- <input type="text" name="roomImage" id="" placeholder="Image Url" required autocomplete="off"> --}}
+                    <p>Uplaod Room Image</p>
+                    {{!-- <input type="text" name="roomImage" id="" placeholder="Image Url" required autocomplete="off">
+                    --}}
                     <input type="file" name="roomImage" id="" required autocomplete="off">
-
-                   
 
                     <button class="btn" type="submit">Submit</button>
 
@@ -45,6 +61,8 @@
                     </div>
 
                 </form>
+
+                <a href="/roomslist"><button class="btm3 showroombtn">See all Rooms</button></a>
 
             </div>
 

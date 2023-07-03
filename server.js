@@ -38,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
+
 // rendering 404 page
 
 // app.get('*', function(req, res){
