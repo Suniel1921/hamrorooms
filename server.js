@@ -4,6 +4,7 @@ dotenv.config();
 const path = require ('path');
 const routes = require ('./routes/main')
 const hbs = require ('hbs');
+const multer = require ('multer');
 
 
 
@@ -26,9 +27,9 @@ hbs.registerPartials('views/partials')
 app.use('', routes);
 
 //Accessing public folder
-const publicPath = path.join(__dirname, ('public'));
-app.use(express.static(publicPath));
-
+// const publicPath = path.join(__dirname, ('public'));
+// app.use(express.static(publicPath));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 

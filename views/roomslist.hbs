@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,46 +8,37 @@
     <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/roomslist.css">
 
-  
+
 </head>
+
 <body>
     {{>navbar}}
 
 
-    
-   <main class="room_list roomContainer">
 
-    {{#each roomListData}}
-
-   
-
-
-    <div class="rooms">
-        {{!-- <img src="/img/roomsimg.jpg" alt="image"> --}}
-        <img src="{{this.roomImage}}" alt="image">
-        <div class="topbanner">
-            <h3>For Rent</h3>
+    <main class="room_list roomContainer">
+        {{#each roomListData}}
+        <div class="rooms">
+            <img src="/roomImage/{{this.roomImage}}" alt="image">
+            <div class="topbanner">
+                <h3>For Rent</h3>
+            </div>
+            <div class="roomdetails">
+                <h4>Address: {{this.address}}</h4>
+                <h4>City: {{this.city}}</h4>
+            </div>
+            <h4 class="rent">Rent Rs.{{this.rent}}</h4>
         </div>
-       <div class="roomdetails">
-       
-         <h4>Address : {{this.address}}</h4>
-         <h4>City : {{this.city}}</h4>
-       </div>   
-        <h4 class="rent">Rent Rs.{{this.rent}}</h4>     
-    </div>
+        {{/each}}
 
-   
-    
 
-    {{/each}}    
-    
- 
 
-   </main>
+    </main>
 
-   <div class="testing"></div>
+    <div class="testing"></div>
 
-    
+
 
 </body>
+
 </html>

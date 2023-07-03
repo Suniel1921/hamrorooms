@@ -17,9 +17,9 @@ const roomOwner = new mongoose.Schema({
         required : true,
     },
     roomImage:{
-        type : String,
+        type: String,
         required: true,
-    }
+    },
 })
 
 const roomOwnerData = mongoose.model('room_owner_Data', roomOwner);

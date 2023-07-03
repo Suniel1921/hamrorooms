@@ -9,6 +9,8 @@ const cookieparser = require ('cookie-parser');
 const jwt = require ('jsonwebtoken');
 const auth = require ('../middleware/authorization');
 
+const multer = require ('multer');
+
 
 
 
@@ -52,7 +54,7 @@ routes.post('/register',async(req, res)=>{
 
         //jwt function  calling 
         const token = await registerData.generateToken();
-        console.log(`register user token : ${token}`);
+        // console.log(`register user token : ${token}`);
 
         //sending cookies on browser (cookie name "jwt")
         res.cookie('jwt', token);
@@ -97,6 +99,7 @@ routes.get('/login',(req, res)=>{
 
 routes.get('/logout',auth, async(req, res)=>{
 
+
 try {
     req.user.tokens=[];
     res.clearCookie('jwt');
@@ -107,7 +110,16 @@ try {
     res.status(400).send(`${error}`)
     
 }
+
 })
+
+
+
+
+
+
+
+
 
 // login post method
 routes.post('/login',async(req, res)=>{
@@ -148,31 +160,77 @@ routes.post('/login',async(req, res)=>{
 
 
 
-// storing room owner room information in database
 
-routes.post('/roomowner',async(req, res)=>{
-    try {
-        const sendData = await roomOwnerData(req.body);
-        await sendData.save();
-        res.render('room_owner',{
-            message : 'Thanks for posting your room !'
-        })
-        
-    } catch (error) {
-        // res.status(400).send(`${error}`)
-        res.render('room_owner',{
-            message : 'Please fill the details about your room.'
-        })
-        
+
+// Setting up multer for file uploads
+const storage = multer.diskStorage({
+    destination: 'public/roomImage',
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
     }
+  });
+  
+  const upload = multer({ storage });
+  
+  // Route for handling room owner form submission
+  routes.post('/roomowner', upload.single('roomImage'), async (req, res) => {
+    try {
+      const sendData = new roomOwnerData({
+        address: req.body.address,
+        city: req.body.city,
+        rent: req.body.rent,
+        phone: req.body.phone,
+        roomImage: req.file.filename
+      });
+  
+      await sendData.save();
+  
+      res.render('room_owner', {
+        message: 'Thanks for posting your room!'
+      });
+    } catch (error) {
+      res.status(400).send(`${error}`);
+    }
+  });
 
-})
+
+
+  // storing room owner room information in database
+
+// routes.post('/roomowner',upload.single('roomImage'),async(req, res)=>{
+//     try {
+//         const sendData = await roomOwnerData(req.body);
+//         await sendData.save();
+//         res.render('room_owner',{
+//             message : 'Thanks for posting your room !'
+//         })
+        
+//     } catch (error) {
+//         res.status(400).send(`${error}`)
+//         // res.render('room_owner',{
+//         //     message : 'Please fill the details about your room.'
+//         // })
+        
+//     }
+
+// })
+
+
+
+
+
+
+
+
+
+
+
 
 
 //rendering roomslist
 routes.get('/roomslist', async(req, res)=>{
     const roomListData = await roomOwnerData.find({})
-    // console.log(roomListData);
+    console.log(roomListData);
     res.render('roomslist',{
         roomListData:roomListData,
     });
