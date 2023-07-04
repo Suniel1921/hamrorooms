@@ -1,4 +1,90 @@
+@media screen and (max-width: 1450px) {
+
+    .circleimg img {
+        width: 19%;
+    }
+
+    .circleimg .head_Para {
+        margin-left: -103px;
+    }
+    .main_header .left_header h1 {
+        font-size: 50px;
+        color: #2E3D62;
+    }
+
+    .left_header{
+        margin-top: -185px;
+    }
+
+    .btn button {
+        padding: 16px 34px;
+    }
+
+
+    .services_section{
+        margin-top: 123px;
+    }
+
+    .vdoicon img {
+        height: 67px;
+        margin-left: -6px;
+    }
+
+    /* .child1, .child2, .child3 {
+        width: 89%;
+    } */
+
+     /* .left_small_card1, .left_small_card2, .left_small_card3{
+        margin-left: 327px;    
+    } */
+
+/* .cards {
+    gap: 0;
+    height: 427px;
+    margin-left: 36px;
+} */
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 1274px){
+
+
+    .services_paragraph .heading {
+        margin-top: 132px;
+    }
+
+
+    
     .halfcirlcle {
        display: none;
     }
@@ -55,6 +141,7 @@
     .services_section{
         margin-top: 90px;
         height: 1300px;
+       
     }
     .why_choose_sectoin{
         flex-wrap: wrap-reverse;
@@ -185,6 +272,8 @@
         left: 1px;
     }
 
+  
+
     .why_choose_left img {
         width: 83%;
         margin-top: -112px;
@@ -251,6 +340,18 @@
         width: 331px;
         margin-top: -110px;
     }
+
+    .vdoicon img{
+        height: 77px;
+        margin-left: 42px;
+    }
+
+    .realvdo {
+        height: 175px;
+        width: 355px;
+    }
+
+   
     
 
     .content h4{
@@ -262,8 +363,14 @@
         margin-top: 34px;
     }
     
-    .main_header .left_header p {
+    /* .main_header .left_header p {
         margin-top: 46px;
+        width: 297px;
+        font-size: 20px;
+    } */
+
+    .main_header .left_header p {
+        margin-top: 26px;
         width: 297px;
         font-size: 20px;
     }
@@ -294,6 +401,18 @@
     .left_small_card1, .left_small_card2, .left_small_card3{
         margin-left: 258px;
     }    
+
+
+
+    /* .left_small_card1, .left_small_card2, .left_small_card3{
+        margin-left: 327px;    
+    } */
+
+/* .cards {
+    gap: 0;
+    height: 427px;
+    margin-left: 10px;
+} */
 
     .why_choose_sectoin {
         flex-wrap: wrap-reverse;

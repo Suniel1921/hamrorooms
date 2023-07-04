@@ -321,5 +321,23 @@ routes.post('/createPost',async(req, res)=>{
 
 
 
+// for admin panel
+
+routes.get('/tables',(req ,res)=>{
+    res.render('tables');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = routes;
