@@ -125,17 +125,20 @@
         <div class="main_child">
 
             <div class="left_main">
-                <form class="form" action="/createPost" method="post">
+                <form class="form" action="/roomowner" method="post" enctype="multipart/form-data">
                     <p>Address:</p>
-                    <input type="text" name="address" id="" placeholder="Kathmandu">
+                    <input type="text" name="address" id="" placeholder="Kathmandu" required autocomplete="off">
                     <p>City</p>
-                    <input type="text" name="city" id="" placeholder="Kirtipur">
+                    <input type="text" name="city" id="" placeholder="Kirtipur" required autocomplete="off">
                     <p>Rent</p>
-                    <input type="number" name="rent" id="" placeholder="5000">
+                    <input type="number" name="rent" id="" placeholder="5000" required autocomplete="off">
                     <p>Phone No.</p>
-                    <input type="number" name="phone" id="" placeholder="9807865665">
-                    <p>Room Image Url</p>
-                    <input type="text" name="roomImage" id="" placeholder="room.jpg">
+                    <input type="number" name="phone" id="" placeholder="9807865665" required autocomplete="off">
+                    <p>Uplaod Room Image</p>
+                    {{!-- <input type="text" name="roomImage" id="" placeholder="Image Url" required autocomplete="off">
+                    --}}
+                    <input type="file" name="roomImage" id="" required autocomplete="off">
+
                     <button class="btn" type="submit">Submit</button>
 
                     <div class="msg">
@@ -143,6 +146,8 @@
                     </div>
 
                 </form>
+
+                <a href="/roomslist"><button class="btm3 showroombtn">See all Rooms</button></a>
 
             </div>
 

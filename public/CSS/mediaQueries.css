@@ -1,4 +1,4 @@
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1550px) {
 
     .circleimg img {
         width: 19%;
@@ -204,15 +204,17 @@
         padding: 34px;
         z-index: 1;
     }
+    
+    .navlinks.active{
+        display: block;
+    }
+
+
     .navlinks li,a{
         margin: 34px;
         text-align: center;
        font-weight: 700;
-    }
-
-    .navlinks.active{
-        display: block;
-    }
+    }  
 
 
 
