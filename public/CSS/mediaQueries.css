@@ -312,7 +312,12 @@
     }
 
     .right_header img {
-        width: 105%;
+        width: 100%;
+        margin-top: 99px;
+    }
+
+    .services_paragraph .heading {
+        margin-top: 10px;
     }
 
      
@@ -331,8 +336,8 @@
 
 
     .btn button {
-        width: 239px;
-        height: 65px;    
+        width: 197px;
+        height: 57px;
     }
 
     .vdoicon {
@@ -341,9 +346,9 @@
         margin-top: -110px;
     }
 
-    .vdoicon img{
-        height: 77px;
-        margin-left: 42px;
+    .vdoicon img {
+        height: 70px;
+        margin-left: 60px;
     }
 
     .realvdo {
