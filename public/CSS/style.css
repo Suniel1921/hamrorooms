@@ -19,7 +19,45 @@
 
 
 
-/* popup box */
+/* log in or what ever pop up box for 3 sec */
+
+
+.pop_Up_Container{
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    display: none;
+}
+
+.pop_Up_Box{
+    width: 800px;
+    height: 444px;
+    background-color: red;
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+
+}
+
+#close {
+    position: relative;
+    left: 757px;
+    font-size: 26px;
+    color: green;
+    top: -20px;
+}
+
+
+
+
+
+/* vdo popup box */
 
 
 .realvdo {
