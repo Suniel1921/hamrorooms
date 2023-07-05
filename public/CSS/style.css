@@ -297,6 +297,24 @@ a {
     color: black;
 }
 
+.vdo_icon_animation{
+    animation: icon_animation 2s infinite both;
+    border-radius: 50%;
+}
+
+@keyframes icon_animation {
+    0%{
+        box-shadow: 0 0 0 0#fff4, 0 0 0 0 #fff4;
+    }
+    60%{
+        box-shadow: 0 0 0 1px rgba(8, 90, 65, 0.267), 0 0 0 5px rgba(23, 122, 89, 0.267);
+    }
+    100%{
+        box-shadow: 0 0 0 0 #fff1, 0 0 0 0 #fff1;
+    }
+    
+}
+
 
 
 /* .vdoicon{
