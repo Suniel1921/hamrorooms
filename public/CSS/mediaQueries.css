@@ -187,6 +187,25 @@
 
 @media screen and (max-width: 898px) {
 
+
+
+     /* pop up close button */
+
+     .pop_Up_Box {
+        height: 500px;
+        width: 597px;
+    }
+
+    #close {
+        position: absolute;
+        top: 0px;
+        left: 577px;
+        font-size: 24px;
+    }
+
+
+
+
     #menubar{
         display: block;
     }
@@ -295,6 +314,23 @@
 @media screen and (max-width: 400px) {
 
 
+         /* pop up close button */
+
+         .pop_Up_Box {
+            height: 500px;
+            width: 325px;
+        }
+    
+        #close {
+            position: absolute;
+            top: 0px;
+            left: 304px;
+            font-size: 24px;
+            
+        }
+    
+
+
 
     .header_and_nav{
         background-image: url('../img/mainbg.jpeg');
@@ -342,21 +378,39 @@
         height: 57px;
     }
 
+    
     .vdoicon {
         display: flex;
         width: 331px;
         margin-top: -110px;
     }
 
+
     .vdoicon img {
         height: 70px;
         margin-left: 60px;
     }
 
+    
     .realvdo {
         height: 175px;
-        width: 355px;
+        width: 300px;
+        margin-left: 16px;
+    }   
+
+    /* vdo close button */
+    .closebtn {
+        position: absolute;
+        top: 9px;
+        left: 323px;
+        font-size: 24px;
+        color: #ffff;
     }
+
+
+
+
+
 
    
     
