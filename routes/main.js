@@ -298,7 +298,7 @@ routes.get('/delete/:id',async(req, res)=>{
 
 })
 
-// creating post using amdin panel
+
 
 // rendering cratepost
 routes.get('/createpost',(req, res)=>{
@@ -312,6 +312,12 @@ routes.post('/createPost',async(req, res)=>{
         message : 'your post are created !'
     })
 })
+
+
+
+
+
+
 
 
 

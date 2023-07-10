@@ -152,6 +152,9 @@
 #menubar {
     display: none;
 }
+#closebar {
+    display: none;
+}
 
 .logoimg {
     width: 30%;

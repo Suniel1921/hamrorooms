@@ -206,13 +206,15 @@
 
 
 
+    /* for hamburger menubar */
+
     #menubar{
         display: block;
     }
 
-    
 
-    .navlinks{
+
+    .navlinks {
         display: none;
         position: absolute;
         top: 58px;
@@ -224,9 +226,27 @@
         z-index: 1;
     }
     
-    .navlinks.active{
+    .navlinks.active {
         display: block;
     }
+    
+    #closebar {
+        display: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        font-size: 24px;
+    }
+    
+    #closebar.active {
+        display: block;
+    }
+
+        /*end code of hamburger menubar */
+
+
+
 
 
     .navlinks li,a{
