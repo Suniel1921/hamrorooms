@@ -15,19 +15,19 @@
       padding: 10px;
       font-size: 16px;
       outline: none;
-      border: 1px solid #4CAF50;
+      border: 1px solid #00BF8D;
       border-radius: 5px;
-      color: #4CAF50;
+      color: #00BF8D;
     }
 
     ::placeholder{
-        color: #4CAF50;
+        color: #00BF8D;
     }
 
     .search-button {
         padding: 11px 25px;
         font-size: 16px;
-        background-color: #4CAF50;
+        background-color: #00BF8D;
         color: white;
         border: none;
         border-radius: 5px;
