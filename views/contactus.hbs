@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact us</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/mediaQueries.css">
+    <link rel="stylesheet" href="/CSS/contactus.css">
+</head>
+
+<body>
+
+   
+
+    {{>navbar}}
+
+
+
+
+
+    <section class="contactus">
+        <div class="imgsection">
+            <img src="/img/contactus2.jpg" alt="">
+        </div>
+        <div class="formsection">
+            <h3 class="contact_heading">Feel Free To Contact With Us 😊 </h3>
+            <form action="/contactus" method="post">
+
+                <p>
+                    <label>Name</label>
+                    <input type="text" name="name" id="name" required autocomplete="off">
+                </p>
+
+                <p>
+                    <label>Last Name</label>
+                    <input type="text" name="lastname" id="name" required autocomplete="off">
+                </p>
+                <p>
+                    <label>Email</label>
+
+                    <input type="email" name="email" id="email" required autocomplete="off">
+                </p>
+                <p>
+                    <label>Phone No.</label>
+
+                    <input type="number" name="phone" id="" required autocomplete="off">
+                </p>
+                <p>
+                    <label>Your Queries</label>
+
+                    <textarea class="full" name="message" id="message" cols="30" rows="10"></textarea required autocomplete="off">
+                </p>
+
+                <button class="btn full" type="submit">Submit</button>
+                <div class="msg">
+                    {{message}}
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

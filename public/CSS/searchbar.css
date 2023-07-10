@@ -1,0 +1,122 @@
+
+     /* CSS styles for the search bar */
+     
+     .search-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 17px;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .search-input {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      outline: none;
+      border: 1px solid #4CAF50;
+      border-radius: 5px;
+      color: #4CAF50;
+    }
+
+    ::placeholder{
+        color: #4CAF50;
+    }
+
+    .search-button {
+        padding: 11px 25px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /* CSS styles for the modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* CSS styles for the search results cards */
+    .card {
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card img {
+        max-width: 43%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    /* .card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    } */
+
+
+
+
+
+
+    /* media queries for laptop devices */
+
+    @media screen and (max-width: 1350px) {
+        .card img {
+            max-width: 53%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+    }
+    @media screen and (max-width: 850px) {
+        .card img {
+            max-width: 73%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+    }
+    @media screen and (max-width: 550px) {
+        .card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+    }
+

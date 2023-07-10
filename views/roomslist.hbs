@@ -9,20 +9,38 @@
     <link rel="stylesheet" href="/CSS/roomslist.css">
     <link rel="stylesheet" href="/CSS/mediaQueries.css">
 
+    <link rel="stylesheet" href="/CSS/searchbar.css">
+
 
 </head>
 
 
 <body>
 
-
-
     {{>navbar}}
 
+    {{!-- searchbar --}}
+    
+    <div class="search-container">
+        <input id="searchInput" type="text" class="search-input" placeholder="Search Your City...">
+        <button onclick="searchData()" class="search-button">Search</button>
+    </div>
 
 
+        <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="searchResults"></div>
+        </div>
+    </div>
 
 
+    {{!-- /////////////////////////////////************************/////////////////////////////// --}}
+
+
+    
+
+    {{!-- roomlist  --}}
     <main class="room_list roomContainer">
         {{#each roomListData}}
         <div class="rooms">
@@ -42,28 +60,24 @@
 
     </main>
 
-    <div class="testing"></div>
 
 
-    
+    {{!-- <div class="testing"></div> --}}
 
-<script src="/javascript/index.js"></script>
+
+
+
+
+
+
+    <script src="/javascript/index.js"></script>
+    <script src="/javascript/searchbar.js"></script>
+
+
+
+
+
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

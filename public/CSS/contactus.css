@@ -1,0 +1,148 @@
+
+.contactus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 134px;
+}
+
+.imgsection img {
+    width: 60%;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(1fr 1fr);
+    gap: 3rem;
+    margin-left: -134px;
+}
+
+.contact_heading {}
+
+
+.formsection form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.formsection form textarea {
+    resize: none;
+
+}
+
+
+.formsection form button {
+    background-color: #00BF8D;
+    border: 0;
+    color: #e4e4e4;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.formsection form label {
+    display: block;
+}
+
+.formsection form .full {
+    grid-column: 1/3;
+}
+
+
+.formsection form input,
+textarea,
+button {
+    width: 100%;
+    padding: 1em;
+    border: solid 1px #00BF8D;
+    border-radius: 4px;
+    outline: none;
+    color: #00BF8D;
+    font-size: 17px;
+
+}
+
+.formsection form textarea {
+    width: 215%;
+    height: 111px;
+    border: solid 1px #00BF8D;
+    outline: none;
+}
+
+.formsection form label {
+    color: #00BF8D;
+}
+
+::placeholder {
+    color: #00BF8D;
+}
+
+.formsection form input:focus {
+    color: #00BF8D;
+    font-weight: 600;
+
+}
+
+.contact_heading {
+    font-size: 29px;
+    margin-left: -130px;
+    color: #2E3D62;
+}
+
+form {
+    margin-top: 54px;
+}
+
+.msg{
+    color: #00BF8D;
+    width: 287px;
+}
+
+
+
+
+/* media queries */
+
+
+@media screen and (max-width :1150px) {
+
+    .formsection form input,
+    textarea,
+    button {
+        width: 82%;
+    }
+
+    .formsection form textarea {
+        width: 203%;
+        height: 111px;
+
+    }
+}
+
+@media screen and (max-width :500px) {
+    .formsection form {
+        display: flex;
+        flex-direction: column;
+        margin-left: 34px;
+        margin-bottom: 41px;
+    }
+
+    .formsection form textarea {
+        width: 83%;
+        height: 111px;
+    }
+
+    .imgsection img {
+        display: none;
+    }
+
+    .contact_heading {
+
+        margin-left: 37px;
+
+    }
+
+
+
+
+}

@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "suniel sharma",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -25,5 +25,9 @@
     "nodemon": "^2.0.22"
   },
   "keywords": [],
-  "description": ""
+  "description": "Hamro Rooms website where you can easily post your rooms and find to.",
+  "repository": {
+    "type": "git",
+    "url": "suniel1921"
+  }
 }

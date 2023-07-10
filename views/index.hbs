@@ -11,21 +11,21 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        {{!-- animation link --}}
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    {{!-- animation link --}}
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-        {{!-- media queries --}}
-        <link rel="stylesheet" href="/CSS/mediaQueries.css">
+    {{!-- media queries --}}
+    <link rel="stylesheet" href="/CSS/mediaQueries.css">
 
-       
+
 </head>
 
 <body>
     <div class="header_and_nav">
-       {{!-- navbar --}}
+        {{!-- navbar --}}
         {{>navbar}}
-            
+
 
         <header class="main_header container">
             <div class="left_header">
@@ -39,18 +39,19 @@
 
 
                 <h1>We Help You To Find <br> Your Dream <span class="changeColorspan" id="spin">Rooms.</span> </h1>
-                <p>Unlock the door to a world of comfort and convenience with Hamro Rooms, the ultimate online destination for effortlessly finding your perfect room.</p>
+                <p>Unlock the door to a world of comfort and convenience with Hamro Rooms, the ultimate online
+                    destination for effortlessly finding your perfect room.</p>
 
                 <div class="btn_section">
 
                     <div class="btn">
-                      <a href="/roomslist">  <button>See All Rooms</button></a>
-        
+                        <a href="/roomslist"> <button>See All Rooms</button></a>
+
                     </div>
                     <div class="vdoicon" id="ytvdoshow">
-                      <img class="vdo_icon_animation" src="/img/vdoicon.png" alt="">
+                        <img class="vdo_icon_animation" src="/img/vdoicon.png" alt="">
                         <p class="para">How We Work </p>
-                        
+
                     </div>
                 </div>
 
@@ -65,19 +66,19 @@
             </div>
 
 
-            
+
             {{!-- popupbox --}}
             <div class="containers">
                 {{!-- <h3>popUP box</h3>
                 <h1>hello iam popup</h1> --}}
 
-              
+
             </div>
 
             <div class="popup">
                 <div class="popupContent">
                     <i class="fa-sharp fa-solid fa-xmark closebtn" id="closebtn"></i>
-                      <video class="realvdo" src="/vdo/vdo.mp4" autoplay controls></video>
+                    <video class="realvdo" src="/vdo/vdo.mp4" autoplay controls></video>
 
                 </div>
 
@@ -85,24 +86,40 @@
 
 
 
-            {{!-- log in or what ever pop up box for 3 sec  --}}
+            {{!-- log in or what ever pop up box for 3 sec --}}
 
             <div class="pop_Up_Container" id="pop_Up_Container">
                 <div class="pop_Up_Box">
                     <i class="fa-sharp fa-solid fa-xmark" id="close"></i>
-                     <h3 class="roomtextpopup">🏠 Find Your Dream Room with Hamro Rooms! 🌟
+                    {{!-- <h3 class="roomtextpopup">🏠 Find Your Dream Room with Hamro Rooms! 🌟👋 Hey there! Are you
+                        tired of scrolling through countless websites, or Broker Offices trying to find your perfect
+                        room? Look no further! Introducing Hamro Rooms, the ultimate solution to all your room-hunting
+                        woes! 🎉
 
-👋 Hey there! Are you tired of scrolling through countless websites, or Broker Offices trying to find your perfect room? Look no further! Introducing Hamro Rooms, the ultimate solution to all your room-hunting woes! 🎉
+                        🔍 With Hamro Rooms, you can easily browse through a wide range of listings and find your dream
+                        room in no time. Whether you're a student, professional, or just looking for a cozy place to
+                        call home, we've got you covered! 😍
 
-🔍 With Hamro Rooms, you can easily browse through a wide range of listings and find your dream room in no time. Whether you're a student, professional, or just looking for a cozy place to call home, we've got you covered! 😍
+                        💼 Room owners, this one's for you too! Post your available rooms on Hamro Rooms and reach a
+                        vast community of potential tenants. It's quick, hassle-free, and completely free! 🆓
 
-💼 Room owners, this one's for you too! Post your available rooms on Hamro Rooms and reach a vast community of potential tenants. It's quick, hassle-free, and completely free! 🆓
+                        💯 What makes Hamro Rooms stand out from the rest? We offer a user-friendly interface, making it
+                        super easy to navigate and find exactly what you're looking for. Plus, we prioritize your safety
+                        and security, ensuring a smooth and trustworthy experience for all users.
 
-💯 What makes Hamro Rooms stand out from the rest? We offer a user-friendly interface, making it super easy to navigate and find exactly what you're looking for. Plus, we prioritize your safety and security, ensuring a smooth and trustworthy experience for all users.
+                        👉 Don't miss out on this incredible opportunity! Join the Hamro Rooms community today and find
+                        your ideal room effortlessly.</h3> --}}
 
-👉 Don't miss out on this incredible opportunity! Join the Hamro Rooms community today and find your ideal room effortlessly.</h3>
+                    <video src="/vdo/maintrailer.mp4" autoplay controls width="95%"></video>
                 </div>
             </div>
+
+
+
+
+
+
+
 
 
 
@@ -113,7 +130,7 @@
             <div class="right_header">
                 {{!-- <img src="/img/right_img.png" alt="images"> --}}
                 <img class="anil" src="/img/3dimg1.png" alt="">
-               
+
 
 
 
@@ -145,14 +162,15 @@
             <div class="content">
                 <h4 data-aos="fade-right">We Promise Providing <span class="services_Span">Best Services</span></h4>
 
-                <p>Harmo Rooms offers a seamless experience, bridging the gap between <br> room finding, hostels finding, and hotels finding, ensuring a hassle-free journey to <br> your ideal accommodation.</p>
+                <p>Harmo Rooms offers a seamless experience, bridging the gap between <br> room finding, hostels
+                    finding, and hotels finding, ensuring a hassle-free journey to <br> your ideal accommodation.</p>
             </div>
 
 
 
 
         </div>
-        {{!-- our services card section --}}       
+        {{!-- our services card section --}}
 
         <div class="cards">
 
@@ -165,21 +183,21 @@
 
                 {{!-- <img src="/img/rooms.png" alt="rooms_icon"> --}}
                 <img src="/img/rooms.svg" alt="rooms">
-                              
+
                 <h5>Want a Room</h5>
                 <p>Discover your dream room with our efficient and personalized services.</p>
 
-                 <a href="/roomslist"><button class="btm1">See all Rooms</button></a>
+                <a href="/roomslist"><button class="btm1">See all Rooms</button></a>
 
-                  {{!-- for cirlce + icon--}}
+                {{!-- for cirlce + icon--}}
                 {{!-- <div class="card_circle1">
                     <i class="fa-solid fa-plus"></i>
-                 <button class="card_btn">see all details</button>
+                    <button class="card_btn">see all details</button>
                 </div> --}}
 
             </div>
 
-            <div class="cards_child child2"> 
+            <div class="cards_child child2">
 
                 {{!-- small card half cirlcle 2 --}}
                 <div class="left_small_card2">
@@ -191,7 +209,7 @@
                 <h5>Want a Hostel</h5>
                 <p>Find your ideal hostel with our convenient and reliable services.</p>
 
-              <a href="/roomslist"><button class="btm2">See all Hostel</button></a>
+                <a href="/roomslist"><button class="btm2">See all Hostel</button></a>
 
                 {{!-- for cirlce + icon--}}
                 {{!-- <div class="card_circle2">
@@ -215,9 +233,9 @@
                 <h5>Want a Hotel</h5>
                 <p>Experience luxury and comfort with our exceptional hotel-finding services.</p>
 
-                 <a href="/roomslist"><button class="btm3">See all Hotels</button></a>
+                <a href="/roomslist"><button class="btm3">See all Hotels</button></a>
 
-                 {{!-- for cirlce + icon--}}
+                {{!-- for cirlce + icon--}}
                 {{!-- <div class="card_circle3">
                     <i class="fa-solid fa-plus"></i>
                     <button class="card_btn card_btn3">see all details</button>
@@ -253,7 +271,11 @@
                 <h2 class="heading">Why Choose Us</h2>
             </div>
             <h3 data-aos="fade-right">We Strongly Believe <br> Customers are the Key</h3>
-            <p>From the moment customers access our website, we strive to provide them with a seamless and user-friendly experience. We understand that searching for the perfect room can be a significant decision, and we aim to make the process as smooth as possible. Our website is designed with their convenience in mind, featuring intuitive navigation, robust and comprehensive room listings to cater to their diverse preferences.</p>
+            <p>From the moment customers access our website, we strive to provide them with a seamless and user-friendly
+                experience. We understand that searching for the perfect room can be a significant decision, and we aim
+                to make the process as smooth as possible. Our website is designed with their convenience in mind,
+                featuring intuitive navigation, robust and comprehensive room listings to cater to their diverse
+                preferences.</p>
         </div>
 
     </section>
@@ -283,9 +305,12 @@
                 </div>
 
                 <div class="content growHeading">
-                    <h4 data-aos="fade-right">We Priorities every <span class="services_Span">Work Steps</span> Equally </h4>
+                    <h4 data-aos="fade-right">We Priorities every <span class="services_Span">Work Steps</span> Equally
+                    </h4>
 
-                    <p>Hamro Rooms website is a comprehensive platform dedicated to simplifying the process of finding <br> the perfect room for individuals With a user-friendly interface. </p>
+                    <p>Hamro Rooms website is a comprehensive platform dedicated to simplifying the process of finding
+                        <br> the perfect room for individuals With a user-friendly interface.
+                    </p>
                 </div>
             </div>
         </div>
@@ -300,7 +325,8 @@
                     <img src="/img/growth1.png" alt="">
                     <div class="card_content">
                         <h3>Step One</h3>
-                        <p>Define your requirements: Begin by clearly defining your requirements for the room you are seeking. </p>
+                        <p>Define your requirements: Begin by clearly defining your requirements for the room you are
+                            seeking. </p>
                     </div>
                 </div>
 
@@ -308,7 +334,8 @@
                     <img src="/img/growth2.png" alt="">
                     <div class="card_content">
                         <h3>Step Two</h3>
-                        <p>Explore and search: Use the search and navigation features provided on the harmonious room finder website to explore and search for available rooms. </p>
+                        <p>Explore and search: Use the search and navigation features provided on the harmonious room
+                            finder website to explore and search for available rooms. </p>
                     </div>
                 </div>
 
@@ -316,7 +343,8 @@
                     <img src="/img/growth3.png" alt="">
                     <div class="card_content">
                         <h3>Step Three</h3>
-                        <p>Compare and make a decision: Once you have a list of potential rooms, take the time to compare them based on your requirements. </p>
+                        <p>Compare and make a decision: Once you have a list of potential rooms, take the time to
+                            compare them based on your requirements. </p>
                     </div>
                 </div>
 
@@ -354,7 +382,7 @@
                             <li><a href="">about us</a></li>
                             <li><a href="">services</a></li>
                             <li><a href="">our team</a></li>
-                            <li><a href="">contact us</a></li>
+                            <li><a href="/contactus">contact us</a></li>
                         </ul>
                     </div>
 
@@ -433,9 +461,9 @@
     <script src="/javascript/index.js"></script>
 
 
- <script>
-  AOS.init();
-</script>
+    <script>
+        AOS.init();
+    </script>
 
 
 

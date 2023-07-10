@@ -8,6 +8,7 @@ const bcrypt = require ('bcrypt');
 const cookieparser = require ('cookie-parser');
 const jwt = require ('jsonwebtoken');
 const auth = require ('../middleware/authorization');
+const contactData = require ('../models/contactus');
 
 const multer = require ('multer');
 
@@ -166,7 +167,10 @@ routes.post('/login',async(req, res)=>{
   
         
     } catch (error) {
-        res.status(400).send(`${error}`)
+        // res.status(400).send(`${error}`)
+        res.render("login",{
+            message : 'Please Enter Valid Credintials'
+        })
         
     }
 })
@@ -310,6 +314,55 @@ routes.post('/createPost',async(req, res)=>{
 })
 
 
+
+//rendring contact us page
+routes.get('/contactus',(req ,res)=>{
+    res.render('contactus');
+
+})
+
+routes.post('/contactus',async(req, res)=>{
+    try {
+        const userContact = await contactData(req.body); 
+        await userContact.save();
+        res.render('contactus',{
+            message : 'Thank you for contacting us! We will be in touch with you shortly !'
+        })
+        
+    } catch (error) {
+        // res.status(400).send(`${error}`)
+        res.render('contactus',{
+            message : 'Please fill all the required filed !'
+        })
+        
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+// search funcanality
+
+routes.get('/search/:key', async(req, res)=>{
+   
+    // console.log(req.params.key)
+    let data = await roomOwnerData.find(
+        {
+            "$or":[
+                {city:{$regex: req.params.key}},
+                // {address:{$regex: req.params.key}}
+            ]
+        }
+    )
+    res.send(data)
+})
 
 
 
