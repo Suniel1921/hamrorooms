@@ -238,7 +238,8 @@ a {
 
 .main_header {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    /* justify-content: center; */
     align-items: center;
     margin-top: 42px;
 
