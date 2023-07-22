@@ -899,6 +899,7 @@ a {
     color: white;
 }
 
+
 .copyright .harmorooms {
     color: var(--primary_dark_green_color)
 }
@@ -919,9 +920,17 @@ a {
     gap: 3rem;
 }
 
+.fbicon{
+    font-size: 34px;
+}
+
 .social_icon i:hover {
     color: var(--primary_dark_green_color);
     transition: 1s;
+}
+
+.copyright_content h3{
+    font-size: 16px;
 }
 
 
