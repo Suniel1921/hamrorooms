@@ -8,40 +8,29 @@
     <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/roomslist.css">
     <link rel="stylesheet" href="/CSS/mediaQueries.css">
-
     <link rel="stylesheet" href="/CSS/searchbar.css">
 
-
+    <!--  Link to Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-
 <body>
-
     {{>navbar}}
 
-
     {{!-- searchbar --}}
-    
     <div class="search-container">
         <input id="searchInput" type="text" class="search-input" placeholder="Search Your City...">
         <button onclick="searchData()" class="search-button">Search</button>
     </div>
 
-
-        <div id="searchModal" class="modal">
+    <div id="searchModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="searchResults"></div>
         </div>
     </div>
 
-
-    {{!-- /////////////////////////////////************************/////////////////////////////// --}}
-
-
-    
-
-    {{!-- roomlist  --}}
+    {{!-- roomlist --}}
     <main class="room_list roomContainer">
         {{#each roomListData}}
         <div class="rooms">
@@ -54,16 +43,86 @@
                 <h4>City: {{this.city}}</h4>
             </div>
             <h4 class="rent">Rent Rs.{{this.rent}}</h4>
+
+            {{!-- room card popup button --}}
+            <button class="room_Popup_btn" data-roomid="{{this._id}}">See Details</button>
         </div>
         {{/each}}
-
-
-
     </main>
 
+    {{!-- pop up box for room card while user click on show details button then popup box appears --}}
 
 
-    {{!-- <div class="testing"></div> --}}
+    <style>
+        .roomBox_container {
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            display: none;
+        }
+
+        .room_pop_Up_Box {
+            width: 1000px;
+            height: 544px;
+            background-color: #ffff;
+            border-radius: 5px;
+            padding: 20px;
+            position: relative;
+        }
+
+        #room_close_Btn {
+            position: absolute;
+            top: 23px;
+            right: 142px;
+            font-size: 26px;
+            color: var(--primary_dark_green_color);
+            cursor: pointer;
+            width: 40px;
+        }
+
+
+        .popUpImg {
+            width: 50%;
+        }
+
+        .roomMap {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .room_Popup_btn {
+            padding: 15px 49px;
+            margin-left: 76px;
+            margin-top: 32px;
+            border: none;
+            border-radius: 7px;
+        }
+
+
+        @media screen and (max-width:870px) {
+            .roomMap .map {
+                width: 34%;
+                height: 134px;
+            }     
+                    
+
+        }
+    </style>
+
+    <div class="roomBox_container" id="roomBox_container">
+        <div class="room_pop_Up_Box" id="roomContent">
+            {{!-- remember if your write any this here not showing on display --}}
+        </div>
+        <img id="room_close_Btn" src="/img/closebtn.png" alt="" onclick="closeRoomPopup()">
+        {{!-- <i class="fas fa-times" id="room_close_Btn" onclick="closeRoomPopup()"></i> --}}
+    </div>
 
 
 
@@ -72,34 +131,66 @@
 
 
 
+    <script>
+        const roomPopupBtns = document.querySelectorAll('.room_Popup_btn');
+        const roomBoxContainer = document.getElementById('roomBox_container');
+        const roomContent = document.getElementById('roomContent');
+        const roomCloseBtn = document.getElementById('room_close_Btn');
 
+        roomPopupBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const roomId = btn.dataset.roomid;
+                showDetails(roomId);
+            });
+        });
 
+        roomCloseBtn.addEventListener('click', () => {
+            closeRoomPopup();
+        });
 
+        function showDetails(roomId) {
+            fetch(`/api/rooms/${roomId}`)
+                .then((response) => response.json())
+                .then((room) => {
+                    roomBoxContainer.style.display = 'flex'; // Show the popup box
 
+                    // Create elements for each room
+                    const roomdetails = document.createElement('div');
+                    roomdetails.innerHTML = `
+                    <div class="roomMap">
+        <img class="popUpImg" src="/roomImage/${room.roomImage}" alt="Image">
+        <div class="googlemap">
+            <iframe class="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28268.78689003218!2d85.25316431957371!3d27.66789547709825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1812d78377ef%3A0x8c37cded908543b!2sKirtipur%2044600!5e0!3m2!1sen!2snp!4v1690003290074!5m2!1sen!2snp"
+                width="400" height="344" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+                       
+      
+                        <h2>Address: ${room.address}</h2>
+                        <h2>City: ${room.city}</h2>
+                        <h2>Rent: Rs.${room.rent}</h2>
+                        <h2>Phone: ${room.phone}</h2>
+                        <!-- Add more room details here if needed -->
+                    `;
 
+                    roomContent.innerHTML = ''; // Clear previous content
+                    roomContent.appendChild(roomdetails);
+                })
+                .catch((error) => {
+                    console.error('Error fetching room data:', error);
+                });
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        function closeRoomPopup() {
+            roomBoxContainer.style.display = 'none';
+            roomContent.innerHTML = ''; // Clear the content when closing
+        }
+    </script>
 
     <script src="/javascript/index.js"></script>
     <script src="/javascript/searchbar.js"></script>
-
-
-
-
-
-
 </body>
 
 </html>

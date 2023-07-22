@@ -254,6 +254,40 @@ routes.get('/roomslist', async(req, res)=>{
     });
 })
 
+
+
+//*****************for pop up box appear ******************
+
+// API route to get room details based on room _id
+routes.get('/api/rooms/:_id', auth, async (req, res) => {
+    const { _id } = req.params; // Use _id instead of roomId
+    try {
+      const room = await roomOwnerData.findById(_id);
+      if (!room) {
+        return res.status(404).json({ message: 'Room not found' });
+      }
+      res.json(room);
+    } catch (error) {
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // admin dashboard rendering
 
 routes.get('/admin', async(req ,res)=>{
@@ -351,9 +385,6 @@ routes.post('/contactus',async(req, res)=>{
 
 
 
-
-
-
 // search funcanality
 
 routes.get('/search/:key', async(req, res)=>{
@@ -369,9 +400,6 @@ routes.get('/search/:key', async(req, res)=>{
     )
     res.send(data)
 })
-
-
-
 
 
 
