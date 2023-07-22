@@ -259,8 +259,8 @@ routes.get('/roomslist', async(req, res)=>{
 //*****************for pop up box appear ******************
 
 // API route to get room details based on room _id
-routes.get('/api/rooms/:_id', auth, async (req, res) => {
-    const { _id } = req.params; // Use _id instead of roomId
+routes.get('/api/rooms/:_id', async (req, res) => {   
+    const {_id} = req.params; // Use _id instead of roomId
     try {
       const room = await roomOwnerData.findById(_id);
       if (!room) {
