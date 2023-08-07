@@ -47,12 +47,20 @@
 
 #close {
     position: relative;
-    left: 753px;
+    left: 786px;
     font-size: 26px;
     color: var(--primary_dark_green_color);
-    top: -399px;
+    top: -423px;
+    cursor: pointer;
+   
 }
 
+#close:hover{
+    color: red;
+    transform: rotate(60deg);
+    transition: all 0.5s ease-in;
+
+}
 
 
 
@@ -308,17 +316,17 @@ a {
 }
 
 @keyframes icon_animation {
-    0%{
-        box-shadow: 0 0 0 0#fff4, 0 0 0 0 #fff4;
+    0% {
+        box-shadow: 0 0 0 0 #fff4, 0 0 0 0 #fff4;
     }
-    60%{
+    60% {
         box-shadow: 0 0 0 1px rgba(8, 90, 65, 0.267), 0 0 0 5px rgba(23, 122, 89, 0.267);
     }
-    100%{
+    100% {
         box-shadow: 0 0 0 0 #fff1, 0 0 0 0 #fff1;
     }
-    
 }
+
 
 
 
