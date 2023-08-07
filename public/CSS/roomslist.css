@@ -248,13 +248,13 @@
 
 @media screen and (max-width: 412px) {
     #room_close_Btn {
-position: absolute;
-top: 189px;
-right: 6px;
-font-size: 26px;
-color: var(--primary_dark_green_color);
-cursor: pointer;
-width: 40px;
-}
+        position: absolute;
+        top: 34px;
+        right: 6px;
+        font-size: 22px;
+        color: var(--primary_dark_green_color);
+        cursor: pointer;
+        width: 37px;
+    }
     
 }
