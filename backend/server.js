@@ -73,9 +73,9 @@ app.use('/api/v1/upload', fileUpload);
 
 
 //default routes 
-app.get("/", (req, res) => {
-    res.send("<h2>Welcome to Hamro Rooms 😊#KeepSmiling #keepCoding</h2>");
-})
+// app.get("/", (req, res) => {
+//     res.send("<h2>Welcome to Hamro Rooms 😊#KeepSmiling #keepCoding</h2>");
+// })
 
 
 app.listen(PORT, () => {
