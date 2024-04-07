@@ -49,9 +49,13 @@ app.use(express.json());
 // );
 
 
-const _dirname = path.dirname('');
-const distdPath = path.join(_dirname, '../frontend/dist');
-app.use(express.static(distdPath));
+// const _dirname = path.dirname('');
+// const distdPath = path.join(_dirname, '../frontend/dist');
+// app.use(express.static(distdPath));
+
+const distPath = path.join(__dirname, '../frontend/dist');
+app.use(express.static(distPath));
+
 
 app.use(cors({
   origin: ['http://18.215.250.197:8000'],
