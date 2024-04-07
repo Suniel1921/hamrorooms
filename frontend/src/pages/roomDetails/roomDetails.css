@@ -1,0 +1,79 @@
+.singleRoomcontainer {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.roomTitle{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.roomImage {
+    display: flex;
+    gap: 5px;
+}
+
+.singleImg {
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 10px;
+}
+
+.room {
+    width: 50%;
+    /* width: 440px; */
+}
+
+.multiroom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 50%;
+}
+
+.multiroom img {
+    width: 49%;
+    border-radius: 10px;
+}
+
+.twoimg {
+    display: flex;
+    gap: 5px;
+}
+
+/* for feature and locaiton button */
+.feature_locationContainer{
+    display: flex;
+    justify-content: centere;
+    align-items: center;
+    gap: 23px;
+    margin-bottom: 12px;
+    margin-top: 23px;
+    cursor: pointer;
+    border-bottom: 1px solid gray;
+    width: 153px;
+}
+
+.socialMediaIcons{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 30px;
+}
+
+/* ------------media queries------------------- */
+
+@media screen and (max-width: 800px){
+    .singleRoomcontainer {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .multiroom {
+        display: none;
+    }
+    .room {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+}

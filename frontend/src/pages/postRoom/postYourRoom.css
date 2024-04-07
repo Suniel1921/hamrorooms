@@ -1,0 +1,64 @@
+.postRoomErrors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: red;
+}
+
+.custom_select {
+  width: 90%;
+}
+
+.postRoomForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 23px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.postRoomForm input {
+  width: 90%;
+  border-radius: 9px;
+  border: 1px solid gainsboro;
+  padding: 12px;
+  outline: none;
+}
+.postRoomForm #parking {
+  width: 90%;
+  border-radius: 9px;
+  border: 1px solid gainsboro;
+  padding: 12px;
+  outline: none;
+}
+
+.postRoomFormBtn {
+  background-color: var(--primary_Dark_Blue_color);
+  width: 90%;
+  padding: 15px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.location-access-allowed {
+  /* border-color: green !important; */
+  background-color: rgba(49, 196, 49, 0.96);
+  color: white;
+}
+
+.location-access-denied {
+  /* border-color: red !important; */
+  background-color: red;
+}
+
+/* **********media queries for modla pop up box************** */
+@media screen and (max-width: 600px) {
+  .postRoomForm {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 23px;
+    margin-top: 12px;
+  }
+}

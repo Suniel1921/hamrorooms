@@ -1,0 +1,13 @@
+.sideMenuContainer{
+    display: flex;
+    gap: 20px;
+}
+
+.sidemenu{
+    width: 15%;
+
+}
+
+.adminchart{
+    width: 85%;
+}

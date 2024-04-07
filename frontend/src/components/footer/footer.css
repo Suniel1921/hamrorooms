@@ -1,0 +1,41 @@
+.footer{
+    margin-top: 30px;
+}
+
+.footerContent{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+.disclaimer{
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+
+}
+
+.sunil:hover{
+    color: #7571f9;
+}
+
+.socailmediaIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+/* ********************media queries****************** */
+
+@media screen and (max-width: 960px) {
+    .footerContent{
+        flex-wrap: wrap;
+    }
+    
+}

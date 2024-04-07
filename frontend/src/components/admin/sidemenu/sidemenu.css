@@ -1,0 +1,25 @@
+.sideMenu {
+  background-color: #7572f9;
+  height: 90vh;
+  color: white;
+}
+
+.sideItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  /* margin-top: 20px; */
+}
+
+.listItems {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.listItems:hover {
+  background-color: #49488d7d;
+}

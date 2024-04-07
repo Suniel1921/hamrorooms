@@ -1,0 +1,235 @@
+.roomContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.account {
+  width: 50%;
+  height: 38vh;
+  border-radius: 20px;
+  /* box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05); */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  margin: 33px 33px;
+}
+
+/* .accountDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:18vh;
+    margin: 23px;
+} */
+
+.accountDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7rem;
+  /* margin-left: 9px; */
+  margin-top: 43px;
+}
+
+.userData {
+  margin-bottom: 156px;
+  margin-left: 12px;
+}
+
+.accountDetails h3 {
+  margin-top: 13px;
+  font-size: 1.5rem;
+}
+
+.user .userImg {
+  width: 274px;
+}
+
+/* **************showing user room list*********** */
+.userRoomsContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  /* margin: 33px 33px; */
+}
+
+/* .userRoom {
+  width: calc((100% - (4 * 20px)) / 4); 
+  box-sizing: border-box;
+  margin: 0;
+} */
+
+.userRoom {
+  width: 30%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.userRoom img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* *******update your modal pop up style******** */
+
+.editRoomForm {
+  display: grid;
+  gap: 15px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.formRow input {
+  width: 90%;
+  border-radius: 9px;
+  border: 1px solid gainsboro;
+  padding: 12px;
+  outline: none;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.selectOption {
+  width: 90%;
+  border-radius: 9px;
+  border: 1px solid gainsboro;
+  padding: 12px;
+  outline: none;
+}
+
+.updateBtn {
+  background-color: var(--primary_Dark_Blue_color);
+  width: 100%;
+  padding: 15px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.icons .deleteIcon {
+  color: var(--primary_Dark_Red_color);
+  font-size: 24px;
+}
+.icons .editIcon {
+  color: var(--primary_Dark_Green_color);
+  font-size: 20px;
+}
+
+.verified {
+  background-color: var(--primary_Dark_Green_color);
+  width: 30%;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  border-radius: 9px;
+}
+
+.not-verified {
+  background-color: var(--primary_Dark_Red_color);
+  width: 50%;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  border-radius: 9px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  width: 100px;
+}
+
+/* media quieries for user rooms  */
+
+@media screen and (max-width: 1520px) {
+  .user .userImg {
+    width: 204px;
+  }
+}
+@media screen and (max-width: 1120px) {
+  .user .userImg {
+    width: 227px;
+    margin-bottom: 45px;
+    margin-right: 45px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .userRoom {
+    width: calc((100% - (2 * 30px)) / 3);
+    box-sizing: border-box;
+  }
+  .account {
+    width: 60%;
+    height: 38vh;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    margin: 14px 0px;
+  }
+  .accountDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0rem;
+    margin-top: 0px;
+  }
+  .user .userImg {
+    width: 226px;
+    margin-top: -172px;
+  }
+}
+@media screen and (max-width: 769px) {
+  .userRoom {
+    width: calc((100% - (1 * 30px)) / 2);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 600px) {
+  .userRoom {
+    width: calc((100% - (0 * 30px)) / 1);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 400px) {
+  .account {
+    width: 100%;
+    height: 38vh;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    margin: 14px 0px;
+  }
+
+  .accountDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0rem;
+    margin-top: 0px;
+  }
+  .user .userImg {
+    width: 226px;
+    margin-top: -125px;
+  }
+}

@@ -1,0 +1,16 @@
+.categoryInput {
+  padding: 14px 45px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.categoryBtn {
+  border: none;
+  outline: none;
+  padding: 15px 35px;
+  margin: 34px;
+  border-radius: 5px;
+  background-color: var(--primary_Dark_Blue_color);
+  color: white;
+}

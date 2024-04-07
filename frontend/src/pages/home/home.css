@@ -1,0 +1,158 @@
+.views{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.zindexskeleton{
+  z-index: -2;
+}
+.paraText{
+  color: #717171;
+}
+
+.scrollCategorys{
+  position: sticky;
+  top: 67px;
+  background-color:white;
+  border-top: 1px solid gray;
+  /* box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);  */
+  
+}
+
+.cardParents {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 9px;
+  }
+  /* .chilCard {
+    width: 24%;
+  } */
+  .chilCard {
+      width: calc((100% - (3 * 20px)) / 4); /* Calculate width for 4 cards per row with a 10px gap */
+      box-sizing: border-box;
+      margin: 0; /* Reset margin to avoid additional spacing issues */     
+      cursor: pointer;
+      /* overflow: hidden; ---for card hovev zoom in effect--- */
+      
+    }   
+ 
+  .chilCard img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    /* transition: scale 400ms; ---for card hovev zoom in effect--- */
+  }
+/*---for card hovev zoom in effect---*/
+  /* .chilCard img:hover{ 
+    scale: 115%;
+    
+  } */
+
+  .roomNotFound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   margin: auto;
+    height: 80vh;
+  }
+
+  /* media queries start from here */
+
+
+  @media screen and (max-width: 1280px) {
+    .chilCard img {
+        width: 100%;
+        height: 290px;
+        object-fit: cover;
+        border-radius: 8px;
+      }    
+  }
+
+  @media screen and (max-width: 1024px) {
+    .cardParents {
+      gap: 30px;
+    }
+  
+    .chilCard {
+      width: calc((100% - (2 * 30px)) / 3); /* Adjust the width as needed */
+      box-sizing: border-box;
+    }
+  
+    /* Remove right margin for the last card */
+    .chilCard:last-child {
+      margin-right: 0;
+    }
+  
+    /* Remove left margin for the first card */
+    .chilCard:first-child {
+      margin-left: 0;
+    }
+  }
+  
+
+  @media screen and (max-width: 769px) {
+    .cardParents {
+      gap: 30px;
+    }
+  
+    .chilCard {
+      width: calc((100% - (1 * 30px)) / 2); /* Adjust the width as needed */
+      box-sizing: border-box;
+    }
+  
+    /* Remove right margin for the last card */
+    .chilCard:last-child {
+      margin-right: 0;
+    }
+  
+    /* Remove left margin for the first card */
+    .chilCard:first-child {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .zindexskeleton{
+      margin-left: 10px;
+    }
+    .container{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .cardParents {
+      gap: 30px;
+    }
+  
+    .chilCard {
+      width: calc((100% - (0 * 30px)) / 1); /* Adjust the width as needed */
+      box-sizing: border-box;
+      /* text-align: center; */
+    }
+  
+    /* Remove right margin for the last card */
+    .chilCard:last-child {
+      margin-right: 10;
+    }
+  
+    /* Remove left margin for the first card */
+    .chilCard:first-child {
+      margin-left: 10;
+    }
+  }
+
+
+  @media screen and (max-width: 150px) {
+    .chilCard img {
+      margin-left: 12px;
+      width: 96px;
+  }
+    
+  }
+ 
+
+

@@ -1,0 +1,15 @@
+.layoutContainer{
+  
+}
+
+.container{
+    max-width: 1350px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+  }
+

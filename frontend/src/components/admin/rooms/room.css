@@ -1,0 +1,8 @@
+.editBtn{
+    background-color: var(--primary_Dark_Green_color);
+}
+
+.deleteBtn{
+    background-color: var(--primary_Dark_Red_color);
+
+}

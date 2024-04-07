@@ -1,0 +1,43 @@
+.chartBoxContainer{
+    display: flex;
+    height: 100%;
+}
+
+.boxInfo{
+    flex: 3;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.chartTitle{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chartInfo{
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.chart{
+    height: 100%;
+    width: 100%;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.percentage{
+    font-weight: bold;
+    font-size: 20px;
+}
+.months{
+    font-size: 15px;
+}
