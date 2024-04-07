@@ -53,11 +53,11 @@ const _dirname = path.dirname('');
 const distdPath = path.join(_dirname, '../frontend/dist');
 app.use(express.static(distdPath));
 
-app.use(
-  cors({
-    "origin" : "*",
-  })
-)
+app.use(cors({
+  origin: ['http://18.215.250.197:8000'],
+  methods: '*' // Allow all methods
+}));
+
  
 
   
