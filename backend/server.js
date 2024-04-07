@@ -41,18 +41,6 @@ dbConnection();
 app.use(express.json());
 // app.use(cors());
 
-// app.use(
-//   cors({
-//     origin: ['https://hamrorooms-frontend.vercel.app', 'https://hamrorooms.netlify.app'],
-//     methods: '*' // Allow all methods
-//   })
-// );
-
-
-// const _dirname = path.dirname('');
-// const distdPath = path.join(_dirname, '../frontend/dist');
-// app.use(express.static(distdPath));
-
 const distPath = path.join(__dirname, '../frontend/dist');
 app.use(express.static(distPath));
 
