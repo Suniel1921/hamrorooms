@@ -126,9 +126,12 @@ app.use(express.static(distPath));
 
 // Middleware for CORS
 app.use(cors({
-  origin: ['http://18.215.250.197:8000'],
+  origin: ['http://54.209.249.7:8000'],
   methods: '*' // Allow all methods
 }));
+
+
+
 
 // API routes
 app.use("/api/v1/auth", authRoute);
