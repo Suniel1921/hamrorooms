@@ -125,10 +125,18 @@ const distPath = path.join(__dirname, '../frontend/dist');
 app.use(express.static(distPath));
 
 // Middleware for CORS
+// app.use(cors({
+//   origin: ['http://54.209.249.7:8000', 'http://localhost:5173'],
+//   methods: '*' // Allow all methods
+// }));
 app.use(cors({
-  origin: ['http://54.209.249.7:8000'],
+  origin: "*",
   methods: '*' // Allow all methods
 }));
+
+console.log("CORS middleware configured successfully");
+
+
 
 
 
