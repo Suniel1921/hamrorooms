@@ -129,6 +129,7 @@ app.use(express.static(distPath));
 //   origin: ['http://54.209.249.7:8000', 'http://localhost:5173'],
 //   methods: '*' // Allow all methods
 // }));
+
 app.use(cors({
   origin: "*",
   methods: '*' // Allow all methods
