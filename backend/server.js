@@ -141,7 +141,6 @@ console.log("CORS middleware configured successfully");
 
 
 
-
 // API routes
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/category", categoryRoute);
