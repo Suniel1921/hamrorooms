@@ -1,56 +1,5 @@
 const mongoose = require ("mongoose");
 
-// const authSchema = new mongoose.Schema({
-
-//     name : {
-//         type : String,
-//         // required : [true, "Name is required"],
-//         trim: true,
-//     },
-//     email: {
-//         type : String,
-//         // required : [true, "Email is required"],
-//         trim: true,
-//     },
-//     password: {
-//         type: String,
-//         // required : [true, "Password is required"],
-//         trim: true,
-//     },
-//     role : {
-//         type : Number,
-//         default : 0,
-//     },
-//     otp: {
-//         type: Number,
-//         // required: true,
-//       },
-//       isVerified: {
-//         type: Boolean,
-//       },
-
-
-//     // -----------------
-//     googleId:{
-//         type : String,
-//     },
-//     displayName : {
-//         type : String,
-//     },
-//     image: {
-//         type : String,
-//     }
-
-
-
-// }, {timestamps: true})
-
-// const authModel = mongoose.model('authModel', authSchema);
-// module.exports = authModel;
-
-
-
-
 const authSchema = new mongoose.Schema({
     // Common fields for both types of users
     name: { type: String, trim: true },

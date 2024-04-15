@@ -1,63 +1,3 @@
-// const fileUploadModel = require("../models/fileUploadModel");
-// const cloudinary = require ("cloudinary").v2;
-// const slug = require ("slugify");
-
-
-// function isFileSupported(type, supportedTypes){
-//     return supportedTypes.includes(type);
-// }
-
-// async function uploadFileToCloudinary(file, folder, quality){
-//     const options = {folder};
-//     options.resource_type = 'auto'
-//     //for compress image quality
-//     if(quality){
-//         options.quality = quality
-//     }
-//     return await cloudinary.uploader.upload(file.tempFilePath, options)
-// }
-
-// //crate room controller(post method) 
-// exports.imageUpload = async (req ,res)=>{
-//     try {
-//         const {city, address, phone, rent, parking, water, floor, roomType} = req.body;
-//         // console.log(city, address, phone, rent);
-
-//         const file = req.files.imageFile;
-//         // console.log('image file is : ', file);
-//         const authUser = req.user;   
-
-//         const { latitude, longitude } = req.body;
-
-//         //validation
-//         const supportedTypes = ['jpg','jpeg','png'];
-//         const fileType = file.name.split('.')[1].toLowerCase();
-//         // console.log('file Type : ', fileType);
-
-//         if(!isFileSupported(fileType, supportedTypes)){
-//             return res.status(400).send({ success: false, message: 'File format not supported'})
-//         }
-
-//         //file format supported hai tab
-//         // console.log('uploading file ')
-//         const response = await uploadFileToCloudinary(file, "userRoomImg",30); //here is 30 for image compressor you can use also 10, 20, 40, 60 , 90...
-//         // console.log(response);
-
-//         //db me entry save karni hai 
-//         const fileData = await fileUploadModel.create({authUser, city,address,phone, rent, imageUrl: response.secure_url, parking, water, floor, roomType})
-//         res.status(200).send({success: true, message: 'Thanks for posting your room.', fileData})
-        
-//     } catch (error) {
-//         return res.status(500).send({success: false, message: `Error while uploading image${error} `})
-//     }
-// }
-
-
-
-
-
-// ***********************
-
 const fileUploadModel = require("../models/fileUploadModel");
 const cloudinary = require("cloudinary").v2;
 const slug = require("slugify");
@@ -117,14 +57,6 @@ exports.imageUpload = async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
 //get all posted room controller (get mothod)
 exports.getAllRoom = async (req, res) => {
   try {
@@ -141,26 +73,6 @@ exports.getAllRoom = async (req, res) => {
 };
 
 
-
-
-// //get single post room 
-// exports.getSingleRoom = async (req, res)=>{
-//     try {
-//         const {id} = req.params;
-//         const singleRoom = await fileUploadModel.findById(id);
-//         if(!singleRoom){
-//             return res.status(404).send({success: false, message: "No single room found !"});
-//         }        
-//         return res.status(200).send({success: true, message: "single room fetched", singleRoom})
-        
-//     } catch (error) {
-//         return res.status(500).send({success: false, message : "Error while getting single room details"})
-        
-//     }
-// }
-
-// get single room with view count
-//get single post room 
 // get single room with view count
 exports.getSingleRoom = async (req, res) => {
   try {
