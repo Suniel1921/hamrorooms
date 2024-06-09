@@ -116,11 +116,11 @@ const Room = () => {
     const columns = [
         {
             title: "Image",
-            dataIndex: "imageUrl",
-            key: "imageUrl",
-            render: (imageUrl) => (
+            dataIndex: "images",
+            key: "images",
+            render: (images) => (
                 <img
-                    src={imageUrl}
+                    src={images[0]}
                     alt="Room"
                     style={{ width: "100%", height: "auto" }}
                 />

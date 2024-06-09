@@ -1,35 +1,50 @@
 const fileUploadModel = require("../models/fileUploadModel");
 const cloudinary = require("cloudinary").v2;
 const slug = require("slugify");
+const fs = require('fs');
 
-function isFileSupported(type, supportedTypes) {
+
+async function isFileSupported(type) {
+    const supportedTypes = ['jpg', 'jpeg', 'png'];
     return supportedTypes.includes(type);
 }
 
 async function uploadFileToCloudinary(file, folder, quality) {
-    const options = { folder };
-    options.resource_type = 'auto';
-    if (quality) {
-        options.quality = quality;
-    }
-    return await cloudinary.uploader.upload(file.tempFilePath, options);
+  const options = { folder, resource_type: 'auto' };
+  if (quality) {
+      options.quality = quality;
+  }
+  const result = await cloudinary.uploader.upload(file.tempFilePath, options);
+  // Delete the temporary file after upload
+  fs.unlink(file.tempFilePath, (err) => {
+      if (err) {
+          console.error(`Failed to delete temp file ${file.tempFilePath}:`, err);
+      }
+  });
+  return result;
 }
+
 
 exports.imageUpload = async (req, res) => {
     try {
         const { city, address, phone, rent, parking, water, floor, roomType, latitude, longitude } = req.body;
-        const file = req.files.imageFile;
+        const files = req.files && req.files.images ? req.files.images : null;
         const authUser = req.user;
 
-        // Validation
-        const supportedTypes = ['jpg', 'jpeg', 'png'];
-        const fileType = file.name.split('.')[1].toLowerCase();
-        if (!isFileSupported(fileType, supportedTypes)) {
-            return res.status(400).send({ success: false, message: 'File format not supported' });
-        }
+        if (!files || !Array.isArray(files)) {
+          return res.status(400).json({ success: false, message: "No files uploaded" });
+      }
 
-        // Upload file to Cloudinary
-        const response = await uploadFileToCloudinary(file, "userRoomImg", 30);
+      const fileUploadPromises = files.map(async file => {
+        const fileType = file.name.split('.').pop().toLowerCase();
+        if (!(await isFileSupported(fileType))) {
+            return res.status(400).json({ success: false, message: 'File format is not supported' });
+        }
+        const response = await uploadFileToCloudinary(file, 'userImages', 90);
+        return response.secure_url;
+    });
+
+    const uploadedImages = await Promise.all(fileUploadPromises);
 
         // Save room details including location to database
         const fileData = await fileUploadModel.create({
@@ -38,22 +53,22 @@ exports.imageUpload = async (req, res) => {
             address,
             phone,
             rent,
-            imageUrl: response.secure_url,
+            images: uploadedImages,
             parking,
             water,
             floor,
             roomType,
-            // location: { type: "Point", coordinates: [parseFloat(longitude), parseFloat(latitude)] }
             longitude,
             latitude
-
         });
 
-        res.status(200).send({ success: true, message: 'Thanks for posting your room.', fileData });
+        res.status(200).json({ success: true, message: 'Thanks for posting your room.', fileData });
     } catch (error) {
-        return res.status(500).send({ success: false, message: `Error while uploading image: ${error}` });
+        return res.status(500).json({ success: false, message: `Error while uploading images: ${error.message}` });
     }
 };
+
+
 
 
 
@@ -92,7 +107,8 @@ exports.getSingleRoom = async (req, res) => {
     return res.status(500).send({ success: false, message: `Error while getting single room details ${error}` });
   }
 };
- 
+
+
 
 
 

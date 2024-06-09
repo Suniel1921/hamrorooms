@@ -13,7 +13,7 @@ const Menu = () => {
         </Link>
         <Link to={'/account/UserRoom'} className='listItem'>
           <FaUserPlus/>
-          <span>See Your Room</span>
+          <span>Manage Your Room</span>
         </Link>
       </div>
     </div>

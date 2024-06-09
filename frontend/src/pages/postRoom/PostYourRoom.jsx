@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { Select } from 'antd';
+import { Select,Carousel } from 'antd';
 const { Option } = Select;
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -13,7 +13,6 @@ const PostYourRoom = ({ onClose }) => {
     const navigate = useNavigate();
     const [locationAccess, setLocationAccess] = useState(null); //for choose your loction button color 
 
-
     const getAllCategory = async () => {
         try {
             const response = await axios.get(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/category/allCategory`);
@@ -21,7 +20,6 @@ const PostYourRoom = ({ onClose }) => {
             if (response.data.success) {
                 setCategory(response.data.allCategory);
             }
-
         } catch (error) {
             if (error.response) {
                 toast.error(error.response.data.message);
@@ -46,15 +44,14 @@ const PostYourRoom = ({ onClose }) => {
                 return String(value).length === 10;
             })
             .required('Phone Number is required'),
-        imageFile: Yup.string().required("iamge is required"),
+        images: Yup.array().min(5, "Please select at least 5 images"),
         city: Yup.string().required("City is required"),
-        // rent: Yup.number().required("Rent is required"),
         rent: Yup.number().required("Rent is required").max(500000, "Room Rent Must be less than 500000"),
-        parking: Yup.string().required("Parking filed is requried"),
-        water: Yup.string().required("Water filed is requried"),
-        floor: Yup.string().required("Floor filed is requried"),
+        parking: Yup.string().required("Parking filed is required"),
+        water: Yup.string().required("Water filed is required"),
+        floor: Yup.string().required("Floor filed is required"),
         roomType: Yup.string().required('Room Types is required'),
-    })
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -62,28 +59,26 @@ const PostYourRoom = ({ onClose }) => {
             address: '',
             phone: '',
             rent: '',
-            imageFile: null,
+            images: [],
             parking: '',
             water: '',
             floor: '',
             roomType: '',
             latitude: '',
             longitude: '',
-
         },
         validationSchema: validationSchema,
         onSubmit: async (values) => {
             try {
-                // Display "Uploading..." toast
                 const uploadingToastId = toast.info("Uploading photo. Please wait...", { autoClose: false });
-
                 const formData = new FormData();
                 formData.append('city', values.city);
                 formData.append('address', values.address);
                 formData.append('phone', values.phone);
                 formData.append('rent', values.rent);
-                formData.append('imageFile', values.imageFile);
-                //room key features
+                for (let i = 0; i < values.images.length; i++) {
+                    formData.append('images', values.images[i]);
+                }
                 formData.append('parking', values.parking);
                 formData.append('water', values.water);
                 formData.append('floor', values.floor);
@@ -91,21 +86,12 @@ const PostYourRoom = ({ onClose }) => {
                 formData.append('latitude', values.latitude);
                 formData.append('longitude', values.longitude);
 
-
                 const response = await axios.post(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/upload/uploadimg`, formData);
-                // console.log(response);
                 console.log("Response:", response)
-
                 if (response.data.success) {
-                    // Close the "Uploading..." toast
                     toast.dismiss(uploadingToastId);
-                    // Show "Success" toast
                     toast.success(response.data.message);
-                    // toast.success("Photo uploaded successfully!");
-                    // Reset the form (including all fields)
-                    // formik.resetForm({ values: { city: '', address: '', phone: '', rent: '', imageFile: null },  });
                     formik.resetForm();
-                    // After successful post, close the modal
                     onClose();
                 }
             } catch (error) {
@@ -115,22 +101,19 @@ const PostYourRoom = ({ onClose }) => {
                     toast.error("Something went wrong.");
                     console.log(error)
                 }
-                
             }
         }
     });
-
 
     const handleLocationSelection = async () => {
         try {
             const position = await new Promise((resolve, reject) => {
                 navigator.geolocation.getCurrentPosition(resolve, reject);
             });
-
             formik.setFieldValue("latitude", position.coords.latitude);
             formik.setFieldValue("longitude", position.coords.longitude);
             toast.success("Location selected successfully!");
-            setLocationAccess(true); // Set location access to true
+            setLocationAccess(true);
         } catch (error) {
             if (error.code === 1) {
                 toast.error("You've denied access to your location. Please enable location in your browser settings if you wish to proceed.");
@@ -141,12 +124,9 @@ const PostYourRoom = ({ onClose }) => {
             } else {
                 toast.error("Error selecting location. Please try again.");
             }
-            setLocationAccess(false); // Set location access to false
+            setLocationAccess(false);
         }
     };
-
-
-
 
     return (
         <>
@@ -186,19 +166,21 @@ const PostYourRoom = ({ onClose }) => {
 
                     <div className='uploadPhoto'>
                         <input
-                            onChange={(event) => formik.setFieldValue("imageFile", event.currentTarget.files[0])}
+                            onChange={(event) => formik.setFieldValue("images", Array.from(event.target.files))}
                             type="file"
-                            name="imageFile"
+                            name="images"
                             accept="image/*"
+                            multiple
                         />
                     </div>
-                    {formik.values.imageFile && (
-                        <img src={URL.createObjectURL(formik.values.imageFile)} alt="Preview" height={'100px'} />
-                    )}
+                    {formik.values.images.map((file, index) => (
+                        <img key={index} src={URL.createObjectURL(file)} alt={`Preview ${index}`} height={'100px'} />
+                    ))}
+
+                    {formik.touched.images && formik.errors.images && <p className='postRoomErrors'>{formik.errors.images}</p>}
 
                     {/* ************for room key features************ */}
                     <div className='parking'>
-                        {/* <label htmlFor="parking">Parking Availability:</label> */}
                         <select
                             id="parking"
                             name="parking"
@@ -216,7 +198,6 @@ const PostYourRoom = ({ onClose }) => {
                         )}
                     </div>
                     <div className='parking'>
-                        {/* <label htmlFor="parking">water available:</label> */}
                         <select
                             id="parking"
                             name="water"
@@ -234,7 +215,6 @@ const PostYourRoom = ({ onClose }) => {
                         )}
                     </div>
                     <div className='parking'>
-                        {/* <label htmlFor="parking">Floor :</label> */}
                         <select
                             id="parking"
                             name="floor"
@@ -254,7 +234,6 @@ const PostYourRoom = ({ onClose }) => {
                         )}
                     </div>
                     <div className='roomType'>
-                        {/* <label htmlFor="room type">Parking Availability:</label> */}
                         <select
                             id="parking"
                             name="roomType"
@@ -274,7 +253,6 @@ const PostYourRoom = ({ onClose }) => {
                         )}
                     </div>
 
-                    {/* <button id='parking' type="button" onClick={handleLocationSelection}>Choose Your Location</button> */}
                     <p
                         id='parking'
                         type="button"
@@ -284,20 +262,9 @@ const PostYourRoom = ({ onClose }) => {
                         {locationAccess === null ? 'Choose Your Location' : locationAccess ? 'Location Set Successfully' : 'Choose Your Location'}
                     </p>
 
-
-
-                    {/* <button className='postRoomFormBtn' type="submit">Submit</button> */}
-
-                    {/* <button className='postRoomFormBtn' type="submit" disabled={formik.isSubmitting}>
-                        {formik.isSubmitting ? "Uploading..." : "Submit"}
-                    </button> */}
-
-
                     <button className='postRoomFormBtn' type="submit" disabled={formik.isSubmitting || !(formik.values.latitude && formik.values.longitude)}>
                         {formik.isSubmitting ? "Uploading..." : "Submit"}
                     </button>
-
-
 
                 </form>
             </div>
@@ -306,6 +273,3 @@ const PostYourRoom = ({ onClose }) => {
 };
 
 export default PostYourRoom;
-
-
-

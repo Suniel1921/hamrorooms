@@ -92,16 +92,16 @@ const RoomDetails = () => {
                     <h3 className='roomTitle'>{singleRoom.address}</h3>
                     <div className='roomImage'>
                         <div className='room'>
-                            <img className='singleImg' src={singleRoom.imageUrl} alt="" loading="lazy" />
+                            <img className='singleImg' src={singleRoom.images[0]} alt="" loading="lazy" />
                         </div>
                         <div className='multiroom'>
                             <div className='twoimg'>
-                                <img src={singleRoom.imageUrl} alt="" loading="lazy" />
-                                <img src={singleRoom.imageUrl} alt="" loading="lazy" />
+                                <img src={singleRoom.images[1]} alt="" loading="lazy" />
+                                <img src={singleRoom.images[2]} alt="" loading="lazy" />
                             </div>
                             <div className='twoimg'>
-                                <img src={singleRoom.imageUrl} alt="" loading="lazy" />
-                                <img src={singleRoom.imageUrl} alt="" loading="lazy" />
+                                <img src={singleRoom.images[3]} alt="" loading="lazy" />
+                                <img src={singleRoom.images[4]} alt="" loading="lazy" />
                             </div>
                         </div>
                     </div>
@@ -140,3 +140,14 @@ const RoomDetails = () => {
 }
 
 export default RoomDetails;
+
+
+
+
+
+
+
+
+
+
+

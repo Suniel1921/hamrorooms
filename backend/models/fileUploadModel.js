@@ -27,9 +27,15 @@ const fileUploadSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    imageUrl: {
+    // imageUrl: {
+    //     type: String,
+    // },
+
+    images: [{
         type: String,
-    },
+    }],
+
+
     parking: {
         type: String,
         enum: ['yes', 'no'],
