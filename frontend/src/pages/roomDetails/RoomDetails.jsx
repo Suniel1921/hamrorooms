@@ -129,7 +129,7 @@ const RoomDetails = () => {
 
                     <h3>Share with your friends</h3>
                     <div className='socialMediaIcons'>
-                        <i style={{color: '#1877F2'}}><FaFacebook onClick={() => shareRoom('facebook')} /></i>
+       c                 <i style={{color: '#1877F2'}}><FaFacebook onClick={() => shareRoom('facebook')} /></i>
                         <i style={{color:'#1DA1F2'}}><FaTwitter onClick={() => shareRoom('twitter')} /></i>
                         <i style={{color: '#25D366'}}><FaWhatsapp onClick={() => shareRoom('whatsapp')} /></i>
                     </div>
@@ -140,14 +140,6 @@ const RoomDetails = () => {
 }
 
 export default RoomDetails;
-
-
-
-
-
-
-
-
 
 
 

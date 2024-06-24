@@ -18,12 +18,12 @@ const Footer = () => {
           </div>
 
           <div className="owner">
-            <p>
+            {/* <p>
               Made with 💖 By {" "}
               <Link to={"https://anilthakurbarahi.com.np/"} target="_blank" className="sunil">
                 Suniel Sharma
               </Link>
-            </p>
+            </p> */}
           </div>
           <div className="socailmediaIcon">
             <Link to={'https://www.facebook.com/profile.php?id=61555425136513'} target="_blank"><p><FaFacebookSquare /></p></Link>
