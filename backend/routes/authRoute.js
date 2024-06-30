@@ -15,6 +15,10 @@ router.get("/admin", requireLogin, isAdmin, controller.admin);
 router.get("/getAllUsers", requireLogin, isAdmin, controller.getAllUsers);
 router.get("/totalUsers", requireLogin, isAdmin, controller.totalUserCount);
 
+// *************************reset link*************************
+// Route to send reset link
+router.post("/send-reset-link", controller.sendResetLink);
+router.post("/reset-password", controller.resetPassword);
 
 
 

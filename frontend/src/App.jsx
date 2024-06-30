@@ -37,6 +37,7 @@ const App = () => {
               <Route path='/roomDetails/features' element={<Features/>}/>
               <Route path='/roomDetails/location' element={<Location/>}/>
               <Route path='/verifyOTP' element={<OTPModal/>}/>
+              <Route path="/reset-password/:token" element={<ResetPassword />} />
               <Route path='*' element={<NotFound/>}/>
 
             {/*protected routes */}

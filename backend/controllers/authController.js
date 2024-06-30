@@ -200,3 +200,68 @@ exports.totalUserCount = async (req, res) => {
 
 
 
+// resetPassword controller function 
+
+exports.sendResetLink = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await authModel.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ success: false, message: "User not found" });
+    }
+
+    const token = JWT.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
+    const resetLink = `${process.env.FRONTEND_URL}/reset-password/${token}`;
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: { 
+        user: process.env.MYEMAIL,
+        pass: process.env.PASSWORD
+      },
+    });
+
+    const mailOptions = {
+      to: user.email,
+      subject: 'Password Reset',
+      text: `Click here to reset your password: ${resetLink}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return res.status(500).json({ success: false, message: "Email sending failed" });
+      }
+      res.json({ success: true, message: "Reset link sent to your email." });
+    });
+
+  } catch (error) {
+    res.status(500).json({ success: false, message: `Error: ${error.message}` });
+  }
+};
+
+exports.resetPassword = async (req, res) => {
+  try {
+    const { token, password } = req.body;
+
+    if (!token) {
+      return res.status(400).json({ success: false, message: "Invalid or expired token" });
+    }
+
+    const decoded = JWT.verify(token, process.env.SECRET_KEY);
+    const user = await authModel.findById(decoded.userId);
+
+    if (!user) {
+      return res.status(400).json({ success: false, message: "User not found" });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    user.password = hashedPassword;
+    await user.save();
+
+    res.json({ success: true, message: "Password updated successfully" });
+
+  } catch (error) {
+    res.status(500).json({ success: false, message: `Error: ${error.message}` });
+  }
+};
