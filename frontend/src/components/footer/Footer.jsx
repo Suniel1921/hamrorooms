@@ -18,8 +18,8 @@ const Footer = () => {
           </div>
 
           <div className="owner">
-            {/* <p>
-              Made with 💖 By {" "}
+            {/* <p>  
+              Made with 💝   By {" "}
               <Link to={"https://anilthakurbarahi.com.np/"} target="_blank" className="sunil">
                 Suniel Sharma
               </Link>

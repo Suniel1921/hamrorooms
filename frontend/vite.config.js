@@ -19,6 +19,7 @@ export default defineConfig({
 
 
 
+
 // *******running vite project on mobile**************
 
 // import { defineConfig } from 'vite';

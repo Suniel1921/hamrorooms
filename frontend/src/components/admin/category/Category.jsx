@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Table, Modal, Button, Input, Space, Tag } from "antd";
-import { ExclamationCircleOutlined } from "@ant-design/icons";
 import "../category/category.css";
 import SideMenu from "../sidemenu/SideMenu";
 import axios from "axios";
@@ -8,9 +7,7 @@ import { toast } from "react-toastify";
 
 const Category = () => {
     const [categoryData, setCategoryData] = useState([]);
-    const [formData, setFormData] = useState({
-        name: "",
-    });
+    const [formData, setFormData] = useState({name: "",});
     const [isEditModalVisible, setIsEditModalVisible] = useState(false);
     const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);

@@ -155,7 +155,7 @@ const Navbar = () => {
           <div className="popUp_login_singup">
             {auth.user ? (
               <>
-                <h2 style={{ textAlign: 'center' }}>Hi<span className="waving-hand">👋</span> ! {auth.user.name}</h2> <hr /> <br />
+                <h2 style={{ textAlign: 'center', textTransform: 'capitalize' }}>Hi<span className="waving-hand">👋</span> ! {auth.user.name}</h2> <hr /> <br />
                 <NavLink to={'/account'} onClick={() => setIsModalOpen(false)}><p>Your Account</p></NavLink>
 
                 <p>Help Center</p>

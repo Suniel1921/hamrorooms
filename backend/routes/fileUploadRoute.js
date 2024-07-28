@@ -14,6 +14,7 @@ router.put("/updateRoomByAdmin/:id", requireLogin, isAdmin, controller.updateRoo
 router.delete("/deleteRoom/:id", requireLogin, controller.deleteRoom);
 router.get("/roomCount", requireLogin, controller.userRoomCount);
 router.get("/totalRoomCount", controller.totaRoomCount);
+router.get("/getallrelatedProduct/:id", controller.getRelatedProducts);
 
 
 

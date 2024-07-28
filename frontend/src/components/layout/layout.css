@@ -1,6 +1,9 @@
-.layoutContainer{
+/* .layoutContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   
-}
+} */
 
 .container{
     max-width: 1350px;

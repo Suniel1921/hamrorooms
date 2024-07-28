@@ -1,54 +1,79 @@
-.searchBar input {
-    width: 337px;
+.searchBar {
+    position: relative;
+    display: inline-block;
+    max-width: 337px; /* Adjust as needed */
+    width: 100%;
+  }
+  
+  .searchBar input {
+    width: calc(100% - 40px); /* Adjust width to accommodate icon */
     padding: 12px;
     border-radius: 21px;
     border: 1px solid var(--borderColor);
     box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
     outline: none;
-}
-
-.searchSkeleton {
+  }
+  
+  .searchIcon {
+    position: absolute;
+    top: 50%;
+    right: 70px;
+    transform: translateY(-50%);
+    color: #aaa;
+    cursor: pointer;
+  }
+  
+  .searchSkeleton {
     height: 35px;
     width: 330px;
-}
-
-
-@media screen and (max-width:500px) {
+  }
+  
+  @media screen and (max-width: 500px) {
+    .searchBar {
+      max-width: 260px;
+    }
     .searchBar input {
-        width: 260px;
-    }    
-
-}
-
-
-
-
-@media screen and (max-width:470px) {
-    .searchBar input{
-        width: 180px;
-        box-shadow: none;
+      width: calc(100% - 30px);
+    }
+  }
+  
+  @media screen and (max-width: 470px) {
+    .searchBar {
+      max-width: 180px;
+    }
+    .searchBar input {
+      width: calc(100% - 25px);
+      box-shadow: none;
     }
     .searchSkeleton {
-        height: 35px;
-        width: 30px;
+      width: 30px;
     }
-    
-}
-
-
-@media screen and (max-width: 350px) {
-    .searchBar input{
-        width: 150px;
-    }
-}
-@media screen and (max-width: 315px) {
-    .searchBar input{
-        width: 120px;
-    }
-}
-@media screen and (max-width: 315px) {
-    .searchBar input{
+    .searchIcon{
         display: none;
     }
-}
-
+  }
+  
+  @media screen and (max-width: 350px) {
+    .searchBar {
+      max-width: 150px;
+    }
+    .searchBar input {
+      width: calc(100% - 20px);
+    }
+  }
+  
+  @media screen and (max-width: 315px) {
+    .searchBar {
+      max-width: 120px;
+    }
+    .searchBar input {
+      width: calc(100% - 15px);
+    }
+  }
+  
+  @media screen and (max-width: 280px) {
+    .searchBar {
+      display: none; /* Hide the entire searchBar at very small screen sizes */
+    }
+  }
+  

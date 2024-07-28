@@ -37,8 +37,16 @@
       margin: 0; /* Reset margin to avoid additional spacing issues */     
       cursor: pointer;
       /* overflow: hidden; ---for card hovev zoom in effect--- */
-      
-    }   
+      transition: transform 0.3s ease;      
+    }     
+  
+  .chilCard:hover {
+      transform: translateY(-5px);
+  }
+
+
+
+
  
   .chilCard img {
     width: 100%;

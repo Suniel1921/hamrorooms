@@ -210,3 +210,8 @@ const Location = ({ singleRoom }) => {
 };
 
 export default Location;
+
+
+
+
+

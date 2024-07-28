@@ -113,7 +113,7 @@ const Home = () => {
                 <>
                   {filteredRoomList.map((room) => (
                     <div className='chilCard' key={room.slug} onClick={() => navigate(`/roomDetails/${room.slug}`)}>
-                      <img src={room.images[0]} alt='room image' loading="lazy"  />
+                      <img className='cardImg' src={room.images[0]} alt='room image' loading="lazy"  />
                       <h3>{room.address}</h3>
                       <p className='paraText'>Rent.{room.rent}/month</p>
                       <p className='paraText'>{room.city.name}</p>
@@ -145,6 +145,11 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
+
 
 
 

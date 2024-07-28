@@ -44,7 +44,7 @@ const PostYourRoom = ({ onClose }) => {
                 return String(value).length === 10;
             })
             .required('Phone Number is required'),
-        images: Yup.array().min(5, "Please select at least 5 images"),
+        images: Yup.array().min(2, "Please select at least 2 images").max(2, "Select Maximum 2 images "),
         city: Yup.string().required("City is required"),
         rent: Yup.number().required("Rent is required").max(500000, "Room Rent Must be less than 500000"),
         parking: Yup.string().required("Parking filed is required"),

@@ -128,6 +128,38 @@ exports.updateRoom = async (req ,res)=>{
 
 
 
+
+
+
+
+// Get related products based on address
+exports.getRelatedProducts = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const property = await fileUploadModel.findById(id);
+
+        if (!property) {
+            return res.status(404).json({ success: false, message: "Room not found" });
+        }
+
+        const relatedProducts = await fileUploadModel.find({
+            address: property.address,
+            _id: { $ne: id }
+        }).limit(5);
+
+        res.json({ success: true, relatedProducts });
+    } catch (error) {
+        res.status(500).json({ success: false, message: `Internal Server Error: ${error.message}` });
+    }
+};
+
+
+
+
+
+
+
+
 //search functionality
 
 // Search rooms by address

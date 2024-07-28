@@ -29,6 +29,7 @@ const App = () => {
     <>
 
       <Router>
+      <ToastContainer />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -56,7 +57,7 @@ const App = () => {
            
           </Route>
         </Routes>
-        <ToastContainer />
+
       </Router>
     </>
   );

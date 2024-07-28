@@ -3,6 +3,7 @@ import '../search/search.css';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useSearchGlobally } from '../../context/SearchContext';
+import { FaSearch } from 'react-icons/fa'; // Importing search icon from react-icons library
 
 const Search = () => {
   const { searchQuery, setSearchQuery } = useSearchGlobally();
@@ -25,11 +26,12 @@ const Search = () => {
           <input
             onChange={(e) => setSearchQuery(e.target.value)}
             value={searchQuery}
-            type='search'
+            type='text'
             name='search'
             id='search'
             placeholder='Search By Address...'
           />
+          <FaSearch className='searchIcon' />
         </div>
       )}
     </>
