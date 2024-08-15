@@ -141,7 +141,7 @@
 //             </i>
 //           </div>
 //         </nav>
-  
+
 
 //         {/* Main modal for user actions */}
 //         <Modal
@@ -211,18 +211,17 @@
 
 //testing 
 
-
-// Importing necessary React and library components
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../navbar/navbar.css";
-import '../auth/login/login.css'
+import '../auth/signup/signup.css'
 import Search from "../search/Search";
 import { Modal } from "antd";
 import { FaUserCircle } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 import Login from "../auth/login/Login";
-import Singup from "../auth/signup/Singup";
+import Signup from '../auth/signup/Singup'
+// import Signup from "../auth/signup/Signup";
 import { useAuthGloabally } from "../../context/AuthContext";
 import { toast } from "react-toastify";
 import { CiSquarePlus } from "react-icons/ci";
@@ -272,7 +271,7 @@ const Navbar = () => {
   const { searchQuery, setSearchQuery } = useSearchGlobally();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isSignupModelOpen, setIsSignupModelOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const [isPostYourRoomModalOpen, setIsPostYourRoomModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -280,7 +279,7 @@ const Navbar = () => {
   const openModal = () => {
     setIsModalOpen(true);
     setIsLoginModalOpen(false);
-    setIsSignupModelOpen(false);
+    setIsSignupModalOpen(false);
   };
 
   // Function to open the login modal
@@ -292,11 +291,11 @@ const Navbar = () => {
   // Function to open the signup modal
   const openSignupModal = () => {
     setIsModalOpen(false);
-    setIsSignupModelOpen(true);
+    setIsSignupModalOpen(true);
   };
 
   // Function to open the "Post Your Room" modal
-  const openPostYourRoomModel = () => {
+  const openPostYourRoomModal = () => {
     if (auth.user) {
       setIsPostYourRoomModalOpen(true); // Open "Post Your Room" modal if user is logged in
     } else {
@@ -336,7 +335,7 @@ const Navbar = () => {
           </div>
 
           {/* "Post Your Room" button */}
-          <div className="postYourRoom" onClick={openPostYourRoomModel}>
+          <div className="postYourRoom" onClick={openPostYourRoomModal}>
             <NavLink>
               <div className="plusicon">
                 <CiSquarePlus size={20} />
@@ -369,7 +368,7 @@ const Navbar = () => {
           mask={false}
           className="modalCustomWidth"
         >
-          <div className="popUp_login_singup">
+          <div className="popUp_login_signup">
             {auth.user ? (
               <>
                 <h2 style={{ textAlign: "center", textTransform: "capitalize" }}>
@@ -394,21 +393,21 @@ const Navbar = () => {
         </Modal>
       </div>
 
-      {/* Modals for login, signup, and "Post Your Room"*/}
+      {/* Modals for login, signup, and "Post Your Room" */}
       <Modal
         open={isLoginModalOpen}
         onCancel={() => setIsLoginModalOpen(false)}
         footer={null}
       >
-        <Login onCloseModal={() => setIsLoginModalOpen(false)} /> {/* Pass prop onCloseModal */}
+        <Login onCloseModal={() => setIsLoginModalOpen(false)} openSignupModal={openSignupModal} />
       </Modal>
 
       <Modal
-        open={isSignupModelOpen}
-        onCancel={() => setIsSignupModelOpen(false)}
+        open={isSignupModalOpen}
+        onCancel={() => setIsSignupModalOpen(false)}
         footer={null}
       >
-        <Singup onClose={() => setIsSignupModelOpen(false)} />
+        <Signup onClose={() => setIsSignupModalOpen(false)} openLoginModal={openLoginModal} />
       </Modal>
 
       {/* Modal for "Post Your Room" */}
@@ -425,3 +424,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

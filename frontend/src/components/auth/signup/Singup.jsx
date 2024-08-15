@@ -5,20 +5,18 @@ import { useFormik } from 'formik';
 import axios from "axios";
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { FaRegEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 import OTPModal from '../../../pages/OTPmodal/OTPModel';
 import Loading from './Loading';
 
-// Functional component for Signup form
-const Signup = ({ onClose }) => {
-  // React Router's navigation hook
+const Signup = ({ onClose, openLoginModal }) => {
   const navigate = useNavigate();
 
   // State variables
   const [showPassword, setShowPassword] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [loading, setLoading] = useState(false); // Added loading state
+  const [isOTPModalOpen, setIsOTPModalOpen] = useState(false);
 
   // Toggle show/hide password
   const handleShowHidePassword = () => {
@@ -33,8 +31,7 @@ const Signup = ({ onClose }) => {
         .required("Email is required")
         .matches(/@gmail\.com$/, "Email must contain @gmail.com"),
     password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required")
-});
-
+  });
 
   // Formik hook for form management
   const formik = useFormik({
@@ -58,16 +55,12 @@ const Signup = ({ onClose }) => {
         if (error.response) {
           toast.error(error.response.data.message);
         }
-        // } else {
-        //   toast.error("Something went wrong !");
-        // }
       } finally {
         setLoading(false); // Set loading back to false regardless of success or failure
       }
     },
   });
 
-  // JSX for the Signup form
   return (
     <>
       <div className='signup'>
@@ -83,12 +76,23 @@ const Signup = ({ onClose }) => {
           </i>
           {formik.touched.password && formik.errors.password && <p className='errors'>{formik.errors.password}</p>}
           <button type='submit' className='btn'>
-            {/* {loading ? <Loading/> : 'Sign up'} */}
             {loading ? 'Signup...' : 'Sign up'}
           </button>
         </form>
+        <p className="account__text">
+          Already have an account? 
+          <span 
+            onClick={() => {
+              onClose(); // Close the signup modal
+              openLoginModal(); // Open the login modal
+            }} 
+            className="form__Link"
+          >
+            Login here
+          </span>
+        </p>
       </div>
-      {userEmail && <OTPModal email={userEmail} onClose={() => { onClose(); setUserEmail(''); }} />}
+      {isOTPModalOpen && <OTPModal email={userEmail} onClose={() => { setIsOTPModalOpen(false); setUserEmail(''); }} />}
     </>
   );
 }

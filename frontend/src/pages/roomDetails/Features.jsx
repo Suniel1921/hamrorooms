@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "../roomDetails/features.css";
 import { FiPhoneCall } from "react-icons/fi";
 import { FaUser } from "react-icons/fa";
+import { useAuthGloabally } from "../../context/AuthContext";
 
 const Features = ({ singleRoom }) => {
+
   return (
     <>
       <section className="singlePageContainer">
@@ -46,10 +48,9 @@ const Features = ({ singleRoom }) => {
           </h3>
           <div className="phoneCallCard">
             <div className="phoneDetail">
-              <h4>Call Room Owener</h4>
+              <h4>Call Room Owner</h4>
               <a href={`tel:${singleRoom.phone}`} className="phoneDetails">
                 <span className="callIcon">
-                  {" "}
                   <FiPhoneCall />
                 </span>
                 {singleRoom.phone}
