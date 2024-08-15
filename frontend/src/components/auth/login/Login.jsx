@@ -172,6 +172,7 @@ const Login = ({ onCloseModal }) => {
         {formik.touched.password && formik.errors.password && (
           <p className="errors">{formik.errors.password}</p>
         )}
+        <p>Forgot Password</p>
         <button type="submit" className="btn">Login</button>
       </form>
     </div>
