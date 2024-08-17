@@ -71,18 +71,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 .form__Link {
-    color: #ff4d4f; /* Change this color to your preferred color */
+    color: blue; /* Change this color to your preferred color */
     cursor: pointer;
     text-decoration: underline; /* Optional: to underline the link */
   }
