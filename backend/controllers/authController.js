@@ -1,113 +1,200 @@
-// Importing required modules and libraries
 const authModel = require("../models/authModel");
 const bcrypt = require("bcrypt");
 const JWT = require("jsonwebtoken");
 const nodemailer = require('nodemailer');
 
+// Temporary in-memory store for user data
+const tempUserStore = new Map(); 
+
 // Function to send OTP via email
-const sendOTPByEmail = async (otp, email) => {
+const sendOTPByEmail = async (otp, email, name) => {
   try {
-    // Creating a nodemailer transporter for sending emails
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: { 
-        user: process.env.MYEMAIL,
-        pass : process.env.PASSWORD
+        user: process.env.MYEMAIL, // Use MYEMAIL environment variable
+        pass: process.env.PASSWORD // Use PASSWORD environment variable
       },
     });
 
-    // Email options for sending OTP
     const mailOptions = {
       from: 'sunielsharma1921@gmail.com',
       to: email,
       subject: 'Welcome to Hamro Rooms - OTP Verification and Registration',
       html: `
-        <p>Dear User,</p>
-        <p>Thank you for registering on Hamro Rooms. Your OTP for registration is: <strong>${otp}</strong></p>
-        <p>Welcome to our platform, and we appreciate your choice!</p>
-        <p>Best regards,<br/>The Hamro Rooms Team</p>
+        <div style="font-family: Arial, sans-serif; color: #333;">
+          <div style="text-align: center; padding: 20px;">
+          <img src="https://hamrorooms.com/logo/hamrorooms.png" alt="Hamro Rooms Logo" style="max-width: 150px; ;" />
+          </div>
+          <p>Dear ${name},</p>
+          <p>Thank you for registering on <strong>Hamro Rooms</strong>. We are excited to have you join our community.</p>
+          <p>Your One-Time Password (OTP) for registration is: <strong style="font-size: 18px; color: #3d82c5;">${otp}</strong></p>
+          <p>To complete your registration, please enter this OTP in the verification form. This code is valid for the next 10 minutes.</p>
+          <p>If you did not request this registration, please ignore this email. If you have any questions, feel free to contact us.</p>
+          <p>Welcome to Hamro Rooms, and we appreciate your choice!</p>
+          <p>Best regards,<br/>
+          The Hamro Rooms Team</p>
+          <div style="text-align: center; padding: 20px;">
+            <small>If you have any questions, please contact us at <a href="mailto:info@hamrorooms.com">info@hamrorooms.com</a>.</small>
+          </div>
+        </div>
       `,
     };
     
-    // Sending the email with OTP
-    const emailResult = await transporter.sendMail(mailOptions);
-    // console.log('Email sent:', emailResult.response);
-
-    return { success: true, message: 'Email sent successfully' };
+    
+    await transporter.sendMail(mailOptions);
+    return { success: true, message: 'OTP sent to email. Please verify to complete registration.' };
   } catch (error) {
-    // console.error(`Error sending email: ${error}`);
-    return { success: false, message: `Error sending email: ${error}` };
+    return { success: false, message: `Error sending email: ${error.message}` };
   }
 };
 
-// Controller for user registration
+// Register controller
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    // Validation check
     if (!name || !email || !password) {
-      return res.status(400).send({ success: false, message: 'All Fields are required' });
+      return res.status(400).json({ success: false, message: 'All fields are required' });
     }
 
-    // Check if the user already exists
     const userExists = await authModel.findOne({ email });
     if (userExists) {
-      return res.status(400).send({ success: false, message: 'User already exists!' });
+      return res.status(400).json({ success: false, message: 'User already exists' });
     }
 
-    // Generate OTP
-    const otp = Math.floor(1000 + Math.random() * 9000);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const otp = Math.floor(100000 + Math.random() * 900000);
 
-    // Hashing user password
-    const hashPassword = await bcrypt.hash(password, 10);
+    tempUserStore.set(email, { name, email, password: hashedPassword, otp });
 
-    // Save the new user in the database
-    const newUser = await authModel.create({ name, email, password: hashPassword, otp });
-
-    // Send OTP via email
-    const emailResult = await sendOTPByEmail(otp, email);
+    const emailResult = await sendOTPByEmail(otp, email, name);
 
     if (!emailResult.success) {
-      // If email sending fails, handle it accordingly
-      return res.status(500).send(emailResult);
+      return res.status(500).json(emailResult);
     }
 
-    return res.status(201).send({ success: true, message: 'OTP sent via email.', newUser });
+    return res.status(200).json({ success: true, message: emailResult.message });
   } catch (error) {
-    // console.error(error);
-    return res.status(500).send({ success: false, message: `Error while registering user` });
-    // return res.status(500).send({ success: false, message: `Error while registering user: ${error}` });
+    return res.status(500).json({ success: false, message: 'Internal server error' });
   }
 };
 
-// Verify user OTP
+// OTP verification controller
 exports.verifyOTP = async (req, res) => {
-    // console.log('Received Data:', req.body);
-    try {
-      const { email, otp } = req.body;
-  
-      // Find the user by email (case-insensitive search)
-      const user = await authModel.findOne({ email: { $regex: new RegExp(email, 'i') } });
-  
-      if (!user) {
-        return res.status(404).send({ success: false, message: 'User not found' });
-      }
-  
-      // Check if the provided OTP matches the stored OTP
-      if (user.otp && otp === user.otp.toString()) {
-        await authModel.findByIdAndUpdate(user._id, { $set: { isVerified: true } });
-  
-        return res.status(200).send({ success: true, message: 'OTP verification successful Please Login to proceed' });
-      } else {
-        return res.status(400).send({ success: false, message: `Invalid OTP` });
-      }
-    } catch (error) {
-      // console.error(error);
-      return res.status(500).send({ success: false, message: `Error during OTP verification` });
-      // return res.status(500).send({ success: false, message: `Error during OTP verification: ${error}` });
+  try {
+    const { email, otp } = req.body;
+
+    if (!email || !otp) {
+      return res.status(400).json({ success: false, message: 'Email and OTP are required' });
     }
-  };
+
+    const userData = tempUserStore.get(email);
+    if (!userData || userData.otp !== parseInt(otp)) {
+      return res.status(400).json({ success: false, message: 'Invalid OTP' });
+    }
+
+    const newUser = await authModel.create({
+      name: userData.name,
+      email: userData.email,
+      password: userData.password,
+      isVerified: true,
+    });
+
+    tempUserStore.delete(email);
+
+    return res.status(201).json({ success: true, message: 'OTP verification successful. User registered.', newUser });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+};
+
+
+
+// Forgot Password controller
+exports.forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ success: false, message: 'Email is required' });
+    }
+
+    const user = await authModel.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User does not exist' });
+    }
+
+    const otp = Math.floor(100000 + Math.random() * 900000);
+    tempUserStore.set(email, { otp });
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail', 
+      auth: {
+        user: process.env.MYEMAIL, 
+        pass: process.env.PASSWORD, 
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.MYEMAIL, 
+      to: email,
+      subject: 'Password Reset OTP - HamroRooms',
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://hamrorooms.com/logo/hamrorooms.png" alt="HamroRooms Logo" style="max-width: 150px;">
+          </div>
+          <p>Hello User,</p>
+          <p>We received a request to reset the password for your HamroRooms account. If you did not request a password reset, please ignore this email.</p>
+          <p>To reset your password, please use the following One-Time Password (OTP):</p>
+          <p style="font-size: 18px; font-weight: bold; color: #3d82c5;">${otp}</p>
+          <p>This code is valid for 10 minutes. Simply enter this code on the password reset page to create a new password for your account.</p>
+          <p>If you have any questions or need further assistance, feel free to contact our support team.</p>
+          <p>Best regards,<br/>The HamroRooms Team</p>
+        </div>
+      `,
+    };
+    
+    
+
+    await transporter.sendMail(mailOptions);
+
+    return res.status(200).json({ success: true, message: 'OTP sent to email. Please verify to reset password.' });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+};
+
+// Reset Password controller
+exports.resetPassword = async (req, res) => {
+  try {
+    const { email, otp, newPassword } = req.body;
+
+    if (!email || !otp || !newPassword) {
+      return res.status(400).json({ success: false, message: 'All fields are required' });
+    }
+
+    const userData = tempUserStore.get(email);
+    if (!userData || userData.otp !== parseInt(otp)) {
+      return res.status(400).json({ success: false, message: 'Invalid OTP' });
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    const user = await authModel.findOneAndUpdate(
+      { email },
+      { password: hashedPassword },
+      { new: true }
+    );
+
+    tempUserStore.delete(email);
+
+    return res.status(200).json({ success: true, message: 'Password reset successful.', user });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+};
 
 // Login controller
 exports.login = async (req, res) => {
@@ -193,75 +280,5 @@ exports.totalUserCount = async (req, res) => {
   } catch (error) {
     console.error('Error fetching user rooms:', error);
     res.status(500).json({ success: false, message: "Internal Server Error." });
-  }
-};
-
-
-
-
-
-// resetPassword controller function 
-
-exports.sendResetLink = async (req, res) => {
-  try {
-    const { email } = req.body;
-    const user = await authModel.findOne({ email });
-
-    if (!user) {
-      return res.status(400).json({ success: false, message: "User not found" });
-    }
-
-    const token = JWT.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
-    const resetLink = `${process.env.FRONTEND_URL}/reset-password/${token}`;
-
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: { 
-        user: process.env.MYEMAIL,
-        pass: process.env.PASSWORD
-      },
-    });
-
-    const mailOptions = {
-      to: user.email,
-      subject: 'Password Reset',
-      text: `Click here to reset your password: ${resetLink}`,
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        return res.status(500).json({ success: false, message: "Email sending failed" });
-      }
-      res.json({ success: true, message: "Reset link sent to your email." });
-    });
-
-  } catch (error) {
-    res.status(500).json({ success: false, message: `Error: ${error.message}` });
-  }
-};
-
-exports.resetPassword = async (req, res) => {
-  try {
-    const { token, password } = req.body;
-
-    if (!token) {
-      return res.status(400).json({ success: false, message: "Invalid or expired token" });
-    }
-
-    const decoded = JWT.verify(token, process.env.SECRET_KEY);
-    const user = await authModel.findById(decoded.userId);
-
-    if (!user) {
-      return res.status(400).json({ success: false, message: "User not found" });
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-    user.password = hashedPassword;
-    await user.save();
-
-    res.json({ success: true, message: "Password updated successfully" });
-
-  } catch (error) {
-    res.status(500).json({ success: false, message: `Error: ${error.message}` });
   }
 };

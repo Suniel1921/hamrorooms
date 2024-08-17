@@ -80,7 +80,7 @@ const Signup = ({ onClose, openLoginModal }) => {
           </button>
         </form>
         <p className="account__text">
-          Already have an account? 
+          Already have an account?
           <span 
             onClick={() => {
               onClose(); // Close the signup modal
@@ -88,7 +88,7 @@ const Signup = ({ onClose, openLoginModal }) => {
             }} 
             className="form__Link"
           >
-            Login here
+          Login here
           </span>
         </p>
       </div>
