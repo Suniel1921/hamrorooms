@@ -7,9 +7,13 @@ import axios from "axios";
 import { useAuthGloabally } from "../../../context/AuthContext";
 import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import ForgotPasswordModal from "../forgotPassword/ForgotPasswordModal";
+
+
 
 const Login = ({ onCloseModal, openSignupModal }) => {
   const [auth, setAuth] = useAuthGloabally();
+  const [modalVisible, setModalVisible] = useState(false);
   //form validation
   const validationSchema = Yup.object({
     email : Yup.string().email("Invalid Email").required("Email is required"),
@@ -57,6 +61,7 @@ const Login = ({ onCloseModal, openSignupModal }) => {
 
   return (
     <>
+
       <div className="login">
         <h2 className="signupTextCenter">Login Here</h2>
         <form className="form" onSubmit={formik.handleSubmit}>
@@ -67,17 +72,22 @@ const Login = ({ onCloseModal, openSignupModal }) => {
             {showPassword ? <FaEyeSlash size={18} /> : <FaRegEye size={18} />}
           </i>
           {formik.touched.password && formik.errors.password && <p className="errors">{formik.errors.password}</p>}
-          <p>Forgot Password</p>
+          <a onClick={() => setModalVisible(true)} className="forgot-password">Forgot Password?</a>
+          
           <button type="submit" className="btn">Login</button>
         </form>
         
         <p className="account__text">Don't have an account? <span onClick={openSignupModal} className="form__Link">Create here</span></p>
       </div>
+      {/* <ForgotPasswordModal/> */}
+      <ForgotPasswordModal visible={modalVisible} onClose={() => setModalVisible(false)} />
     </>
   );
 };
 
 export default Login;
+
+
 
 
 

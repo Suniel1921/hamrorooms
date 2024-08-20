@@ -65,3 +65,19 @@
     }
     
 }
+
+
+
+
+
+
+.form__Link {
+    color: blue; /* Change this color to your preferred color */
+    cursor: pointer;
+    text-decoration: underline; /* Optional: to underline the link */
+  }
+  
+  .form__Link:hover {
+    color: #ff7875; /* Change this to a hover color if desired */
+  }
+  
