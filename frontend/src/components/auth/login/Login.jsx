@@ -67,8 +67,10 @@ const Login = ({ onCloseModal, openSignupModal }) => {
             {showPassword ? <FaEyeSlash size={18} /> : <FaRegEye size={18} />}
           </i>
           {formik.touched.password && formik.errors.password && <p className="errors">{formik.errors.password}</p>}
+          <p>Forgot Password</p>
           <button type="submit" className="btn">Login</button>
         </form>
+        
         <p className="account__text">Don't have an account? <span onClick={openSignupModal} className="form__Link">Create here</span></p>
       </div>
     </>

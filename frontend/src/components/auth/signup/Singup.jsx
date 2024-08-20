@@ -75,9 +75,10 @@ const Signup = ({ onClose, openLoginModal }) => {
             {showPassword ? <FaEyeSlash size={18} /> : <FaRegEye size={18} />}
           </i>
           {formik.touched.password && formik.errors.password && <p className='errors'>{formik.errors.password}</p>}
-          <button type='submit' className='btn'>
-            {loading ? 'Signup...' : 'Sign up'}
-          </button>
+          <button type='submit' className='btn' disabled={loading}>
+  {loading ? 'Signing up...' : 'Sign up'}
+</button>
+
         </form>
         <p className="account__text">
           Already have an account? 
@@ -98,3 +99,4 @@ const Signup = ({ onClose, openLoginModal }) => {
 }
 
 export default Signup;
+
