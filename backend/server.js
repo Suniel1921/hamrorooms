@@ -45,7 +45,7 @@ app.use('/api/v1/upload', fileUpload);
 
 // Default route
 app.get("/", (req, res) => {
-  res.send("Welcome to hamro rooms by ins Technology");
+  res.send("Welcome to hamro rooms by sunil sharma");
 });
 
 // Error handling middleware
